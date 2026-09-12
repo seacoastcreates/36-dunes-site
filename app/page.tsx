@@ -333,8 +333,8 @@ export default function Home() {
               and build it either way.
             </p>
             <div className="contact-actions">
-              <a className="btn btn-primary" href="mailto:hello@36dunes.com">
-                hello@36dunes.com
+              <a className="btn btn-primary" href="mailto:kirby@36dunes.com">
+                kirby@36dunes.com
               </a>
               <a className="btn btn-ghost" href="#top">
                 Back to top ↑
