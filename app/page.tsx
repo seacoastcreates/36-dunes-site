@@ -158,7 +158,7 @@ export default function Home() {
                 <div className="cap-item">
                   <div className="name">Web Applications</div>
                   <p>
-                    Full-stack products built with React, Next.js, and Python on
+                    Full-stack products built with React, Node.js, and Python on
                     modern cloud infrastructure — from first prototype to
                     production.
                   </p>
@@ -166,8 +166,9 @@ export default function Home() {
                 <div className="cap-item">
                   <div className="name">iOS &amp; Mobile</div>
                   <p>
-                    Native apps built with Swift and Core ML, designed to run fast
-                    and stay private, on-device wherever possible.
+                    Native apps built with Swift, React Native, and Core ML,
+                    designed to run fast and stay private, on-device wherever
+                    possible.
                   </p>
                 </div>
                 <div className="cap-item">
