@@ -219,28 +219,38 @@ export default function Home() {
                   builds.
                 </p>
               </div>
-              <dl className="spec-list">
-                <div className="spec-row">
-                  <dt>Platform</dt>
-                  <dd>iOS · Swift + SwiftUI</dd>
-                </div>
-                <div className="spec-row">
-                  <dt>Model</dt>
-                  <dd>OpenAI CLIP → Core ML</dd>
-                </div>
-                <div className="spec-row">
-                  <dt>Method</dt>
-                  <dd>Unsupervised k-means on embeddings</dd>
-                </div>
-                <div className="spec-row">
-                  <dt>Privacy</dt>
-                  <dd>100% on-device, no server</dd>
-                </div>
-                <div className="spec-row">
-                  <dt>Result</dt>
-                  <dd>Full library sorted in minutes</dd>
-                </div>
-              </dl>
+              <div className="case-side">
+                <dl className="spec-list">
+                  <div className="spec-row">
+                    <dt>Platform</dt>
+                    <dd>iOS · Swift + SwiftUI</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Model</dt>
+                    <dd>OpenAI CLIP → Core ML</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Method</dt>
+                    <dd>Unsupervised k-means on embeddings</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Privacy</dt>
+                    <dd>100% on-device, no server</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Result</dt>
+                    <dd>Full library sorted in minutes</dd>
+                  </div>
+                </dl>
+                <a
+                  className="btn btn-ghost case-cta"
+                  href="https://photonester.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View details →
+                </a>
+              </div>
             </div>
           </div>
         </section>
