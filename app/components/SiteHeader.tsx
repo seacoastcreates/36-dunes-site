@@ -46,12 +46,9 @@ export default function SiteHeader() {
           <Link href="/#about">About</Link>
         </nav>
         <div className="header-ctas">
-          <a className="btn btn-ghost" href="/rfp">
+          <a className="btn btn-primary" href="/rfp">
             Request a proposal
           </a>
-          <Link className="btn btn-primary" href="/#contact">
-            Start a project
-          </Link>
         </div>
         <label className="nav-toggle-btn" htmlFor="nav-toggle">
           Menu
@@ -64,7 +61,6 @@ export default function SiteHeader() {
         <a href="/blog">Blog</a>
         <Link href="/#about">About</Link>
         <a href="/rfp">Request a proposal</a>
-        <Link href="/#contact">Start a project</Link>
       </div>
     </header>
   );
