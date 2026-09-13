@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Work_Sans, IBM_Plex_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -111,6 +112,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         {children}
       </body>
+      <GoogleAnalytics gaId="G-P0LY70G6B3" />
     </html>
   );
 }
