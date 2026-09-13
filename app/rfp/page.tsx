@@ -28,6 +28,23 @@ export default function RfpPage() {
               we&apos;ll fill in the rest on a short call.
             </p>
           </div>
+          <div className="hero-scene" aria-hidden="true">
+            <svg
+              className="horizon"
+              viewBox="0 0 1200 220"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 160 C 140 90, 260 90, 360 140 C 410 165, 340 185, 300 155 C 420 70, 560 65, 660 130 C 700 155, 780 160, 860 130 C 940 100, 1060 100, 1200 150 L1200 220 L0 220 Z"
+                fill="var(--bg-elev)"
+              />
+              <path
+                d="M0 200 C 180 140, 320 140, 430 185 C 520 220, 700 220, 820 175 C 920 137, 1060 140, 1200 190 L1200 220 L0 220 Z"
+                fill="var(--band-bg)"
+              />
+            </svg>
+          </div>
         </section>
 
         <section className="band plain" id="process">
@@ -44,6 +61,17 @@ export default function RfpPage() {
             </div>
             <div className="approach-list">
               <div className="approach-step">
+                <svg
+                  className="step-icon"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <rect x="4" y="8" width="22" height="16" rx="2" stroke="var(--accent)" strokeWidth="1.8" />
+                  <path d="M4 9 L15 18 L26 9" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
                 <div className="step-index">01 — REVIEW</div>
                 <h3>We read every request</h3>
                 <p>
@@ -53,6 +81,21 @@ export default function RfpPage() {
                 </p>
               </div>
               <div className="approach-step">
+                <svg
+                  className="step-icon"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 6h20a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H12l-6 5v-5H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"
+                    stroke="var(--accent)"
+                    strokeWidth="1.8"
+                    strokeLinejoin="round"
+                  />
+                </svg>
                 <div className="step-index">02 — DISCOVERY CALL</div>
                 <h3>A short call to clarify scope</h3>
                 <p>
@@ -62,6 +105,17 @@ export default function RfpPage() {
                 </p>
               </div>
               <div className="approach-step">
+                <svg
+                  className="step-icon"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M8 4v22" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" />
+                  <path d="M8 5h14l-3 5 3 5H8" stroke="var(--accent)" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" />
+                </svg>
                 <div className="step-index">03 — PROPOSAL &amp; KICKOFF</div>
                 <h3>A written, fixed-scope proposal</h3>
                 <p>

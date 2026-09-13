@@ -309,6 +309,7 @@ section.plain { padding-block: 84px; }
 @media (max-width: 860px) {
   .approach-list { grid-template-columns: 1fr; gap: 30px; }
 }
+.approach-step .step-icon { display: block; margin-bottom: 16px; }
 .approach-step .step-index {
   font-family: var(--mono);
   color: var(--accent);
@@ -355,7 +356,7 @@ section.plain { padding-block: 84px; }
 .contact-meta strong { color: var(--band-text); font-weight: 500; }
 
 /* rfp page */
-.rfp-intro { padding-block: 64px 12px; }
+.rfp-intro { padding-block: 64px 0; }
 .rfp-intro h1 {
   font-size: clamp(2.1rem, 4.6vw, 3.2rem);
   line-height: 1.08;
