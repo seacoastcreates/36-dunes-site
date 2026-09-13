@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 const CONSENT_KEY = "36dunes-cookie-consent";
@@ -8,20 +8,27 @@ const GA_ID = "G-P0LY70G6B3";
 
 type Consent = "accepted" | "declined" | null;
 
-export default function CookieConsent() {
-  const [consent, setConsent] = useState<Consent>(null);
-  const [ready, setReady] = useState(false);
+function subscribe(callback: () => void) {
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
+}
 
-  useEffect(() => {
-    let stored: Consent = null;
-    try {
-      stored = localStorage.getItem(CONSENT_KEY) as Consent;
-    } catch {
-      stored = null;
-    }
-    setConsent(stored);
-    setReady(true);
-  }, []);
+function getSnapshot(): Consent {
+  try {
+    return localStorage.getItem(CONSENT_KEY) as Consent;
+  } catch {
+    return null;
+  }
+}
+
+function getServerSnapshot(): Consent {
+  return null;
+}
+
+export default function CookieConsent() {
+  const storedConsent = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const [override, setOverride] = useState<Consent>(null);
+  const consent = override ?? storedConsent;
 
   const choose = (value: "accepted" | "declined") => {
     try {
@@ -29,13 +36,13 @@ export default function CookieConsent() {
     } catch {
       // ignore storage errors (private browsing, etc.)
     }
-    setConsent(value);
+    setOverride(value);
   };
 
   return (
     <>
       {consent === "accepted" && <GoogleAnalytics gaId={GA_ID} />}
-      {ready && consent === null && (
+      {consent === null && (
         <div className="band cookie-banner" role="dialog" aria-label="Cookie consent">
           <p>
             We use cookies for basic site analytics — to see what pages get

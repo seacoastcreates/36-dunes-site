@@ -1,11 +1,15 @@
+import Link from "next/link";
+
 export default function SiteFooter() {
   return (
     <footer>
       <nav className="wrap footer-nav">
-        <a href="/#services">Capabilities</a>
-        <a href="/#work">Work</a>
-        <a href="/#approach">Approach</a>
-        <a href="/#about">About</a>
+        <a href="/services">Services</a>
+        <a href="/work/photonester">Work</a>
+        <a href="/blog">Blog</a>
+        <Link href="/#approach">Approach</Link>
+        <Link href="/#about">About</Link>
+        <a href="/resources/ai-readiness-checklist">AI Readiness Checklist</a>
         <a href="/rfp">Request a proposal</a>
         <a href="mailto:hello@36dunes.com">hello@36dunes.com</a>
       </nav>

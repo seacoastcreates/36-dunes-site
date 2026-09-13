@@ -1,3 +1,4 @@
+import Link from "next/link";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 import ScrollReveal from "./components/ScrollReveal";
@@ -132,6 +133,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            <Link className="back-link case-read-more" href="/services">
+              See all services →
+            </Link>
           </div>
         </section>
 
@@ -163,6 +167,9 @@ export default function Home() {
                   rejection to a Core ML compute-unit fallback on older iPadOS
                   builds.
                 </p>
+                <Link className="back-link case-read-more" href="/work/photonester">
+                  Read the full case study →
+                </Link>
               </div>
               <div className="case-side">
                 <dl className="spec-list">
@@ -193,7 +200,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  View details →
+                  Try PhotoNester →
                 </a>
               </div>
             </div>

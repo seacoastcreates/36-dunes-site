@@ -1,8 +1,10 @@
+import Link from "next/link";
+
 export default function SiteHeader() {
   return (
     <header>
       <div className="wrap header-row">
-        <a className="brand" href="/">
+        <Link className="brand" href="/">
           <svg
             width="30"
             height="20"
@@ -36,20 +38,20 @@ export default function SiteHeader() {
             />
           </svg>
           36&nbsp;DUNES
-        </a>
+        </Link>
         <nav className="primary">
-          <a href="/#services">Capabilities</a>
-          <a href="/#work">Work</a>
-          <a href="/#approach">Approach</a>
-          <a href="/#about">About</a>
+          <a href="/services">Services</a>
+          <Link href="/#work">Work</Link>
+          <a href="/blog">Blog</a>
+          <Link href="/#about">About</Link>
         </nav>
         <div className="header-ctas">
           <a className="btn btn-ghost" href="/rfp">
             Request a proposal
           </a>
-          <a className="btn btn-primary" href="/#contact">
+          <Link className="btn btn-primary" href="/#contact">
             Start a project
-          </a>
+          </Link>
         </div>
         <label className="nav-toggle-btn" htmlFor="nav-toggle">
           Menu
@@ -57,12 +59,12 @@ export default function SiteHeader() {
       </div>
       <input type="checkbox" id="nav-toggle" />
       <div className="wrap mobile-menu">
-        <a href="/#services">Capabilities</a>
-        <a href="/#work">Work</a>
-        <a href="/#approach">Approach</a>
-        <a href="/#about">About</a>
+        <a href="/services">Services</a>
+        <Link href="/#work">Work</Link>
+        <a href="/blog">Blog</a>
+        <Link href="/#about">About</Link>
         <a href="/rfp">Request a proposal</a>
-        <a href="/#contact">Start a project</a>
+        <Link href="/#contact">Start a project</Link>
       </div>
     </header>
   );

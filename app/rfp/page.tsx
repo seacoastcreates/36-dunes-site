@@ -18,7 +18,7 @@ export default function RfpPage() {
       <SiteHeader />
 
       <main>
-        <section className="plain rfp-intro">
+        <section className="plain page-intro">
           <div className="wrap">
             <div className="eyebrow">REQUEST A PROPOSAL</div>
             <h1>Tell us what you&apos;re building.</h1>
