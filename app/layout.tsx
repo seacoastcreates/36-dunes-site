@@ -23,10 +23,79 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const siteTitle = "36 Dunes — AI/ML & Software Engineering Studio";
+const siteDescription =
+  "36 Dunes is a machine learning and AI solutions studio that helps forward-thinking businesses unlock the power of their data — custom models, predictive analytics, and automation pipelines that turn information into strategic advantage.";
+
 export const metadata: Metadata = {
-  title: "36 Dunes — AI/ML & Software Engineering Studio",
-  description:
-    "36 Dunes is a machine learning and AI solutions studio that helps forward-thinking businesses unlock the power of their data — custom models, predictive analytics, and automation pipelines that turn information into strategic advantage.",
+  metadataBase: new URL("https://36dunes.com"),
+  title: siteTitle,
+  description: siteDescription,
+  keywords: [
+    "AI consulting",
+    "machine learning studio",
+    "custom AI models",
+    "AI automation",
+    "data strategy consulting",
+    "predictive analytics",
+    "full-stack software engineering",
+    "iOS development",
+    "AI/ML software engineering",
+    "36 Dunes",
+  ],
+  authors: [{ name: "36 Dunes", url: "https://36dunes.com" }],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: "/",
+    siteName: "36 Dunes",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "36 Dunes",
+  description: siteDescription,
+  url: "https://36dunes.com",
+  email: "hello@36dunes.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "York",
+    addressRegion: "ME",
+    addressCountry: "US",
+  },
+  areaServed: "US",
+  knowsAbout: [
+    "Machine Learning",
+    "Artificial Intelligence",
+    "Data Strategy Consulting",
+    "AI Automation",
+    "Full-Stack Web Development",
+    "iOS Development",
+    "Cloud Infrastructure",
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -35,7 +104,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${fraunces.variable} ${workSans.variable} ${ibmPlexMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
