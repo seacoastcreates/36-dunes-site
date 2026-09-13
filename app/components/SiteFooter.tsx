@@ -1,6 +1,14 @@
 export default function SiteFooter() {
   return (
     <footer>
+      <nav className="wrap footer-nav">
+        <a href="/#services">Capabilities</a>
+        <a href="/#work">Work</a>
+        <a href="/#approach">Approach</a>
+        <a href="/#about">About</a>
+        <a href="/rfp">Request a proposal</a>
+        <a href="mailto:hello@36dunes.com">hello@36dunes.com</a>
+      </nav>
       <div className="wrap footer-row">
         <div className="footer-brand">
           <svg

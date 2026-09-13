@@ -421,6 +421,21 @@ footer {
   padding-block: 32px;
   border-top: 1px solid var(--line);
 }
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.footer-nav a {
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--text-dim);
+  transition: color 0.15s ease;
+}
+.footer-nav a:hover, .footer-nav a:focus-visible { color: var(--text); }
 .footer-row {
   display: flex;
   justify-content: space-between;
