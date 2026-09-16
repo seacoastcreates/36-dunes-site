@@ -2,14 +2,14 @@
 
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
+import InviteLinkButton from "../../components/InviteLinkButton";
 
 type Status = "idle" | "submitting" | "error";
 
 export default function NewClientForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
-  const [result, setResult] = useState<{ clientId: string; inviteLink: string } | null>(null);
-  const [copied, setCopied] = useState(false);
+  const [clientId, setClientId] = useState<string | null>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -37,7 +37,7 @@ export default function NewClientForm() {
         setStatus("error");
         return;
       }
-      setResult({ clientId: data.clientId, inviteLink: data.inviteLink });
+      setClientId(data.clientId);
       setStatus("idle");
     } catch {
       setError("Something went wrong.");
@@ -45,14 +45,7 @@ export default function NewClientForm() {
     }
   };
 
-  const copyLink = async () => {
-    if (!result) return;
-    await navigator.clipboard.writeText(result.inviteLink);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  if (result) {
+  if (clientId) {
     return (
       <div className="auth-card">
         <h1>Client created</h1>
@@ -60,15 +53,9 @@ export default function NewClientForm() {
           Send this invite link to your client — it signs them in and takes them straight to
           setting a password. It only works once.
         </p>
-        <div className="field">
-          <label htmlFor="invite-link">Invite link</label>
-          <input id="invite-link" readOnly value={result.inviteLink} onFocus={(e) => e.target.select()} />
-        </div>
+        <InviteLinkButton clientId={clientId} autoGenerate />
         <div className="auth-form">
-          <button type="button" className="btn btn-primary" onClick={copyLink}>
-            {copied ? "Copied!" : "Copy link"}
-          </button>
-          <Link className="btn btn-ghost" href={`/admin/clients/${result.clientId}`}>
+          <Link className="btn btn-ghost" href={`/admin/clients/${clientId}`}>
             Go to client →
           </Link>
         </div>

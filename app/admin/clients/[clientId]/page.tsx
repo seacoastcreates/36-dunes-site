@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { adminDb } from "../../../lib/firebase/admin";
+import InviteLinkButton from "../../components/InviteLinkButton";
 
 export const metadata: Metadata = {
   title: "Client — 36 Dunes Admin",
@@ -73,6 +74,18 @@ export default async function AdminClientDetailPage({
           {client.contactName} · {client.email}
         </p>
       </div>
+
+      <div className="section-head">
+        <div>
+          <h2>Invite</h2>
+          <p>
+            {client.passwordSet
+              ? "This client has already signed in and set a password."
+              : "This client hasn't signed in yet — generate a link to send them."}
+          </p>
+        </div>
+      </div>
+      <InviteLinkButton clientId={clientId} />
 
       <div className="section-head">
         <h2>Engagements</h2>
