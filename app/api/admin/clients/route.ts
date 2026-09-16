@@ -1,6 +1,7 @@
 import { requireAdminApi } from "../../../lib/admin-guard";
 import { adminAuth, adminDb } from "../../../lib/firebase/admin";
 import { FieldValue } from "firebase-admin/firestore";
+import { withRetry } from "../../../lib/retry";
 
 export async function POST(request: Request) {
   const admin = await requireAdminApi();
@@ -60,10 +61,12 @@ export async function POST(request: Request) {
 
   let inviteLink: string;
   try {
-    inviteLink = await adminAuth.generateSignInWithEmailLink(email, {
-      url: `${new URL(request.url).origin}/portal/invite`,
-      handleCodeInApp: true,
-    });
+    inviteLink = await withRetry(() =>
+      adminAuth.generateSignInWithEmailLink(email, {
+        url: `${new URL(request.url).origin}/portal/invite`,
+        handleCodeInApp: true,
+      })
+    );
   } catch (err: unknown) {
     return Response.json(
       { error: "generateSignInWithEmailLink failed", detail: String((err as Error)?.message ?? err) },
