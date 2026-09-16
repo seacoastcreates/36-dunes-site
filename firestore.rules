@@ -1,0 +1,24 @@
+rules_version = '2';
+
+// All reads/writes for client data go through the Admin SDK server-side
+// (Route Handlers / Server Components) — the Admin SDK always bypasses
+// these rules, so this file is defense-in-depth against any accidental
+// client-side Firestore access, not the primary access control.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /clients/{clientId} {
+      allow read: if request.auth != null && request.auth.uid == clientId;
+      allow write: if false;
+
+      match /{subcollection=**} {
+        allow read: if request.auth != null && request.auth.uid == clientId;
+        allow write: if false;
+      }
+    }
+
+    // Deny-all fallback (e.g. stripeEvents, or any future top-level collection).
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
