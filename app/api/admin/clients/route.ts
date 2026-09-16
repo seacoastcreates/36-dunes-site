@@ -33,28 +33,43 @@ export async function POST(request: Request) {
     return Response.json({ error: "Failed to create user" }, { status: 500 });
   }
 
-  await adminDb
-    .collection("clients")
-    .doc(uid)
-    .set({
-      businessName,
-      contactName,
-      email,
-      phone,
-      status: "invited",
-      stripeCustomerId: null,
-      passwordSet: false,
-      notes: "",
-      createdAt: FieldValue.serverTimestamp(),
-      createdBy: admin.email,
-      invitedAt: FieldValue.serverTimestamp(),
-      lastLoginAt: null,
-    });
+  try {
+    await adminDb
+      .collection("clients")
+      .doc(uid)
+      .set({
+        businessName,
+        contactName,
+        email,
+        phone,
+        status: "invited",
+        stripeCustomerId: null,
+        passwordSet: false,
+        notes: "",
+        createdAt: FieldValue.serverTimestamp(),
+        createdBy: admin.email,
+        invitedAt: FieldValue.serverTimestamp(),
+        lastLoginAt: null,
+      });
+  } catch (err: unknown) {
+    return Response.json(
+      { error: "Firestore write failed", detail: String((err as Error)?.message ?? err) },
+      { status: 500 }
+    );
+  }
 
-  const inviteLink = await adminAuth.generateSignInWithEmailLink(email, {
-    url: `${new URL(request.url).origin}/portal/invite`,
-    handleCodeInApp: true,
-  });
+  let inviteLink: string;
+  try {
+    inviteLink = await adminAuth.generateSignInWithEmailLink(email, {
+      url: `${new URL(request.url).origin}/portal/invite`,
+      handleCodeInApp: true,
+    });
+  } catch (err: unknown) {
+    return Response.json(
+      { error: "generateSignInWithEmailLink failed", detail: String((err as Error)?.message ?? err) },
+      { status: 500 }
+    );
+  }
 
   return Response.json({ ok: true, clientId: uid, inviteLink });
 }
