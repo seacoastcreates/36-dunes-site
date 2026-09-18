@@ -10,6 +10,16 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "review-intelligence-prototype",
+    title: "What a 4.16-Star Average Doesn't Tell You",
+    excerpt:
+      "Building a review-intelligence prototype for a multi-line hospitality business: sentiment scoring, zero-shot aspect classification, and what 1,531 real reviews revealed once broken out by business line.",
+    date: "2026-09-18",
+    dateDisplay: "September 18, 2026",
+    readTime: "7 min read",
+    tags: ["Applied NLP", "Client pitch"],
+  },
+  {
     slug: "building-photonester",
     title: "Building PhotoNester: Teaching an iPhone to Organize a Million Memories",
     excerpt:
