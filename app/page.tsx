@@ -2,6 +2,7 @@ import Link from "next/link";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 import ScrollReveal from "./components/ScrollReveal";
+import ContactForm from "./components/ContactForm";
 
 export default function Home() {
   return (
@@ -294,8 +295,9 @@ export default function Home() {
               We&apos;ll tell you honestly whether AI is the right tool for it —
               and build it either way.
             </p>
+            <ContactForm />
             <div className="contact-actions">
-              <a className="btn btn-primary" href="mailto:hello@36dunes.com">
+              <a className="btn btn-ghost" href="mailto:hello@36dunes.com">
                 hello@36dunes.com
               </a>
               <a className="btn btn-ghost" href="#top">

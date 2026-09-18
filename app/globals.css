@@ -367,6 +367,7 @@ section.plain { padding-block: 84px; }
 .page-intro .lede { max-width: 60ch; margin-top: 22px; }
 
 .rfp-form { max-width: 780px; }
+.contact-form { max-width: 620px; margin-top: 32px; }
 .hp-field { position: absolute; left: -9999px; }
 .form-grid {
   display: grid;
