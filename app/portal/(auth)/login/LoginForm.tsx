@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import {
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -123,6 +124,12 @@ export default function LoginForm() {
           {status === "submitting" ? "Signing in…" : "Sign in"}
         </button>
       </form>
+
+      <p className="auth-links">
+        <Link className="back-link" href="/portal/forgot-password">
+          Forgot password?
+        </Link>
+      </p>
 
       {!pendingGoogleCredential && (
         <>

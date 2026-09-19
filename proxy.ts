@@ -7,7 +7,12 @@ import type { NextRequest } from "next/server";
 // in the Server Component / Route Handler layer, which can safely use the
 // Admin SDK. Keeping firebase-admin out of this file avoids relying on how
 // Netlify's runtime happens to deploy it.
-const PUBLIC_PORTAL_PATHS = ["/portal/login", "/portal/invite", "/portal/set-password"];
+const PUBLIC_PORTAL_PATHS = [
+  "/portal/login",
+  "/portal/invite",
+  "/portal/set-password",
+  "/portal/forgot-password",
+];
 
 export function proxy(request: NextRequest) {
   const isPublicPath = PUBLIC_PORTAL_PATHS.includes(request.nextUrl.pathname);
