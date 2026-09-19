@@ -297,9 +297,6 @@ export default function Home() {
             </p>
             <ContactForm />
             <div className="contact-actions">
-              <a className="btn btn-ghost" href="mailto:hello@36dunes.com">
-                hello@36dunes.com
-              </a>
               <a className="btn btn-ghost" href="#top">
                 Back to top ↑
               </a>

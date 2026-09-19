@@ -46,6 +46,9 @@ export default function SiteHeader() {
           <Link href="/#about">About</Link>
         </nav>
         <div className="header-ctas">
+          <a className="btn btn-ghost" href="/portal/login">
+            Clients
+          </a>
           <a className="btn btn-primary" href="/rfp">
             Request a proposal
           </a>
@@ -60,6 +63,7 @@ export default function SiteHeader() {
         <Link href="/#work">Work</Link>
         <a href="/blog">Blog</a>
         <Link href="/#about">About</Link>
+        <a href="/portal/login">Clients</a>
         <a href="/rfp">Request a proposal</a>
       </div>
     </header>

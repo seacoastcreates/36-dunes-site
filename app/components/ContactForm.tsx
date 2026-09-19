@@ -8,6 +8,18 @@ function encode(data: Record<string, string>) {
     .join("&");
 }
 
+const US_STATES = [
+  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
+  "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho",
+  "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine",
+  "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+  "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
+  "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
+  "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+  "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia",
+  "Washington", "West Virginia", "Wisconsin", "Wyoming", "District of Columbia",
+];
+
 type Status = "idle" | "submitting" | "success" | "error";
 
 export default function ContactForm() {
@@ -77,6 +89,17 @@ export default function ContactForm() {
         <div className="field">
           <label htmlFor="contact-phone">Phone</label>
           <input id="contact-phone" name="phone" type="tel" autoComplete="tel" />
+        </div>
+        <div className="field">
+          <label htmlFor="contact-state">State</label>
+          <select id="contact-state" name="state" autoComplete="address-level1" defaultValue="">
+            <option value="">Select a state</option>
+            {US_STATES.map((state) => (
+              <option key={state} value={state}>
+                {state}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="field field-full">
           <label htmlFor="contact-message">Message *</label>
