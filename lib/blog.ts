@@ -10,6 +10,16 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "building-moodlens",
+    title: "Building MoodLens: a mood journal that reads between the lines",
+    excerpt:
+      "How I built an iPhone app that reads the emotion in what you write or say, keeps your data private, and costs almost nothing to run.",
+    date: "2026-09-26",
+    dateDisplay: "September 26, 2026",
+    readTime: "5 min read",
+    tags: ["Build log", "Privacy"],
+  },
+  {
     slug: "review-intelligence-prototype",
     title: "What a 4.16-Star Average Doesn't Tell You",
     excerpt:
