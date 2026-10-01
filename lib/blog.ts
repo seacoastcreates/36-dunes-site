@@ -10,6 +10,16 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "building-cellar-index",
+    title: "Building Cellar Index: Teaching a Model Which Wines Are About to Change Price",
+    excerpt:
+      "Ten years of government PDF price lists turned into three production models — and the ablation discipline that rejected most of the features I tried. Plus what's still left to tune.",
+    date: "2026-10-01",
+    dateDisplay: "October 1, 2026",
+    readTime: "8 min read",
+    tags: ["Build log", "MLOps"],
+  },
+  {
     slug: "building-moodlens",
     title: "Building MoodLens: a mood journal that reads between the lines",
     excerpt:
