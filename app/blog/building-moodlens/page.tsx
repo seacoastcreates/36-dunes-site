@@ -4,7 +4,7 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Building MoodLens: a mood journal that reads between the lines — 36 Dunes",
+  title: "Building MoodLens: a Private AI Mood Journal — 36 Dunes",
   description:
     "How I built an iPhone app that reads the emotion in what you write or say, keeps your data private, and costs almost nothing to run.",
   alternates: { canonical: "/blog/building-moodlens" },

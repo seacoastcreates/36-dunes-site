@@ -4,7 +4,7 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Building Cellar Index: Teaching a Model Which Wines Are About to Change Price — 36 Dunes",
+  title: "Building Cellar Index: Forecasting Wine Prices — 36 Dunes",
   description:
     "Ten years of government PDF price lists turned into three production models — and the ablation discipline that rejected most of the features I tried. Plus what's still left to tune.",
   alternates: { canonical: "/blog/building-cellar-index" },

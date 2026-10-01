@@ -4,7 +4,7 @@ import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Building PhotoNester: Teaching an iPhone to Organize a Million Memories — 36 Dunes",
+  title: "Building PhotoNester: On-Device Photo Sorting — 36 Dunes",
   description:
     "How PhotoNester sorts an entire camera roll into Travel, Pets, Food, and more, entirely on-device — CLIP converted to Core ML, unsupervised clustering, and the App Store bug that almost shipped broken.",
   alternates: { canonical: "/blog/building-photonester" },
