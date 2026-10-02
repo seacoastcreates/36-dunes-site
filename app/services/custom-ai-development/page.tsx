@@ -146,8 +146,8 @@ export default function CustomAiDevelopmentPage() {
               <Link className="btn btn-primary" href="/rfp">
                 Request a proposal
               </Link>
-              <a className="btn btn-ghost" href="mailto:hello@36dunes.com">
-                hello@36dunes.com
+              <a className="btn btn-ghost" href="mailto:kirby@36dunes.com">
+                kirby@36dunes.com
               </a>
             </div>
           </div>

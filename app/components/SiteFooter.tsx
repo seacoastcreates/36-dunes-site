@@ -11,7 +11,7 @@ export default function SiteFooter() {
         <Link href="/#about">About</Link>
         <a href="/resources/ai-readiness-checklist">AI Readiness Checklist</a>
         <a href="/rfp">Request a proposal</a>
-        <a href="mailto:hello@36dunes.com">hello@36dunes.com</a>
+        <a href="mailto:kirby@36dunes.com">kirby@36dunes.com</a>
       </nav>
       <div className="wrap footer-row">
         <div className="footer-brand">

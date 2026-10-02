@@ -80,7 +80,7 @@ const jsonLd = {
   name: "36 Dunes",
   description: siteDescription,
   url: "https://36dunes.com",
-  email: "hello@36dunes.com",
+  email: "kirby@36dunes.com",
   address: {
     "@type": "PostalAddress",
     addressLocality: "York",

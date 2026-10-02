@@ -181,7 +181,7 @@ export default function RfpForm() {
       {status === "error" && (
         <p className="form-error">
           Something went wrong on our end — please try again, or email us
-          directly at hello@36dunes.com.
+          directly at kirby@36dunes.com.
         </p>
       )}
     </form>

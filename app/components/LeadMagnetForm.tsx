@@ -99,7 +99,7 @@ export default function LeadMagnetForm({ children }: { children: React.ReactNode
       {status === "error" && (
         <p className="form-error">
           Something went wrong on our end — please try again, or email us at
-          hello@36dunes.com.
+          kirby@36dunes.com.
         </p>
       )}
     </form>
