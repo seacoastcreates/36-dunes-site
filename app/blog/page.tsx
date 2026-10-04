@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
@@ -33,7 +34,19 @@ export default function BlogIndexPage() {
             <div className="post-list">
               {blogPosts.map((post) => (
                 <Link key={post.slug} className="post-item" href={`/blog/${post.slug}`}>
-                  <span className="post-date">{post.dateDisplay}</span>
+                  <div className="post-media">
+                    {post.image && (
+                      <Image
+                        className="post-thumb"
+                        src={post.image}
+                        alt={post.imageAlt ?? ""}
+                        width={720}
+                        height={540}
+                        sizes="(max-width: 640px) 72px, 160px"
+                      />
+                    )}
+                    <span className="post-date">{post.dateDisplay}</span>
+                  </div>
                   <div>
                     <h3>{post.title}</h3>
                     <p>{post.excerpt}</p>

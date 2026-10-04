@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
@@ -35,17 +36,30 @@ export default function BuildingMoodLensPost() {
             <Link className="back-link" href="/blog">
               ← All posts
             </Link>
-            <div className="eyebrow">BUILD LOG</div>
-            <h1>Building MoodLens: a mood journal that reads between the lines</h1>
-            <p className="lede">
-              How I built an iPhone app that reads the emotion in what you
-              write or say, keeps your data private, and costs almost nothing
-              to run.
-            </p>
-            <div className="article-meta">
-              <span>September 26, 2026</span>
-              <span>5 min read</span>
-              <span>Privacy</span>
+            <div className="post-intro-grid">
+              <div>
+                <div className="eyebrow">BUILD LOG</div>
+                <h1>Building MoodLens: a mood journal that reads between the lines</h1>
+                <p className="lede">
+                  How I built an iPhone app that reads the emotion in what
+                  you write or say, keeps your data private, and costs
+                  almost nothing to run.
+                </p>
+                <div className="article-meta">
+                  <span>September 26, 2026</span>
+                  <span>5 min read</span>
+                  <span>Privacy</span>
+                </div>
+              </div>
+              <Image
+                className="post-title-image"
+                src="/blog/building-moodlens/thumb.jpg"
+                alt="A gold line-art profile silhouette beside a glowing crescent moon and an arc of moon phases on a dark navy background"
+                width={720}
+                height={540}
+                priority
+                sizes="(max-width: 780px) 100vw, 50vw"
+              />
             </div>
           </div>
         </section>

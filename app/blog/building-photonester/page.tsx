@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
@@ -35,17 +36,30 @@ export default function BuildingPhotoNesterPost() {
             <Link className="back-link" href="/blog">
               ← All posts
             </Link>
-            <div className="eyebrow">BUILD LOG</div>
-            <h1>Building PhotoNester: Teaching an iPhone to Organize a Million Memories</h1>
-            <p className="lede">
-              An app that sorts your entire camera roll into Travel, Pets,
-              Food, and more — without a single photo ever leaving your
-              phone. Here&apos;s how it actually works.
-            </p>
-            <div className="article-meta">
-              <span>September 16, 2026</span>
-              <span>6 min read</span>
-              <span>On-device ML</span>
+            <div className="post-intro-grid">
+              <div>
+                <div className="eyebrow">BUILD LOG</div>
+                <h1>Building PhotoNester: Teaching an iPhone to Organize a Million Memories</h1>
+                <p className="lede">
+                  An app that sorts your entire camera roll into Travel,
+                  Pets, Food, and more — without a single photo ever leaving
+                  your phone. Here&apos;s how it actually works.
+                </p>
+                <div className="article-meta">
+                  <span>September 16, 2026</span>
+                  <span>6 min read</span>
+                  <span>On-device ML</span>
+                </div>
+              </div>
+              <Image
+                className="post-title-image"
+                src="/blog/building-photonester/thumb.jpg"
+                alt="Gold photo-frame icons clustering into a smartphone outline on a dark navy background"
+                width={720}
+                height={540}
+                priority
+                sizes="(max-width: 780px) 100vw, 50vw"
+              />
             </div>
           </div>
         </section>

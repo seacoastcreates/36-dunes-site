@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
@@ -35,17 +36,30 @@ export default function CustomModelVsApiPost() {
             <Link className="back-link" href="/blog">
               ← All posts
             </Link>
-            <div className="eyebrow">DECISION GUIDE</div>
-            <h1>When to Build a Custom Model vs. Use an API</h1>
-            <p className="lede">
-              OpenAI&apos;s API is the right call more often than most
-              technical founders want to admit. Here&apos;s the actual
-              decision tree, not the sales pitch.
-            </p>
-            <div className="article-meta">
-              <span>September 14, 2026</span>
-              <span>9 min read</span>
-              <span>ML strategy</span>
+            <div className="post-intro-grid">
+              <div>
+                <div className="eyebrow">DECISION GUIDE</div>
+                <h1>When to Build a Custom Model vs. Use an API</h1>
+                <p className="lede">
+                  OpenAI&apos;s API is the right call more often than most
+                  technical founders want to admit. Here&apos;s the actual
+                  decision tree, not the sales pitch.
+                </p>
+                <div className="article-meta">
+                  <span>September 14, 2026</span>
+                  <span>9 min read</span>
+                  <span>ML strategy</span>
+                </div>
+              </div>
+              <Image
+                className="post-title-image"
+                src="/blog/custom-model-vs-api/thumb.jpg"
+                alt="Two gold paths, one lined with network nodes and one with API brackets, converging at a glowing decision point on a dark navy background"
+                width={720}
+                height={540}
+                priority
+                sizes="(max-width: 780px) 100vw, 50vw"
+              />
             </div>
           </div>
         </section>

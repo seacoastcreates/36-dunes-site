@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
@@ -129,18 +130,31 @@ export default function ReviewIntelligencePost() {
             <Link className="back-link" href="/blog">
               ← All posts
             </Link>
-            <div className="eyebrow">BUILD LOG</div>
-            <h1>What a 4.16-Star Average Doesn&apos;t Tell You</h1>
-            <p className="lede">
-              A prototype for a client pitch: sentiment scoring and zero-shot
-              aspect classification run against 1,531 real reviews for a
-              multi-line hospitality business — and what showed up once the
-              star average got broken apart.
-            </p>
-            <div className="article-meta">
-              <span>September 18, 2026</span>
-              <span>7 min read</span>
-              <span>Applied NLP</span>
+            <div className="post-intro-grid">
+              <div>
+                <div className="eyebrow">BUILD LOG</div>
+                <h1>What a 4.16-Star Average Doesn&apos;t Tell You</h1>
+                <p className="lede">
+                  A prototype for a client pitch: sentiment scoring and
+                  zero-shot aspect classification run against 1,531 real
+                  reviews for a multi-line hospitality business — and what
+                  showed up once the star average got broken apart.
+                </p>
+                <div className="article-meta">
+                  <span>September 18, 2026</span>
+                  <span>7 min read</span>
+                  <span>Applied NLP</span>
+                </div>
+              </div>
+              <Image
+                className="post-title-image"
+                src="/blog/review-intelligence-prototype/thumb.jpg"
+                alt="Gold star-rating review cards dissolving into data particles connected to a network of hospitality icons on a dark navy background"
+                width={720}
+                height={540}
+                priority
+                sizes="(max-width: 780px) 100vw, 50vw"
+              />
             </div>
           </div>
         </section>

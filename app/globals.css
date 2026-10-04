@@ -357,7 +357,10 @@ section.plain { padding-block: 84px; }
 .contact-meta strong { color: var(--band-text); font-weight: 500; }
 
 /* rfp page */
-.page-intro { padding-block: 64px 0; }
+/* `section.` qualifier matches section.plain's specificity so this override
+   actually wins (it comes later in the cascade) instead of silently losing
+   to the generic 84px padding-block every .page-intro section was getting. */
+section.page-intro { padding-block: 64px 0; }
 .page-intro h1 {
   font-size: clamp(2.1rem, 4.6vw, 3.2rem);
   line-height: 1.08;
@@ -545,6 +548,43 @@ footer {
 .article-callout p { margin: 0; color: var(--text-dim); }
 .article-callout .btn { margin-top: 16px; }
 
+/* post title area: text column + image column, 50/50 */
+.post-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 18px;
+}
+@media (max-width: 780px) {
+  .post-intro-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+.post-title-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+
+/* full-width image inside post body copy */
+.prose figure { margin: 0; }
+.prose figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+.prose figure figcaption {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
 /* service pages */
 .service-grid {
   display: grid;
@@ -592,7 +632,7 @@ footer {
 .post-list { display: flex; flex-direction: column; }
 .post-item {
   display: grid;
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: 160px 1fr;
   gap: 24px;
   padding-block: 28px;
   border-bottom: 1px solid var(--line);
@@ -601,8 +641,14 @@ footer {
 }
 .post-item:first-child { padding-top: 0; }
 .post-item:last-child { border-bottom: none; }
-@media (max-width: 640px) {
-  .post-item { grid-template-columns: 1fr; gap: 8px; }
+.post-item .post-media { display: flex; flex-direction: column; gap: 10px; }
+.post-item .post-thumb {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--line);
 }
 .post-item .post-date {
   font-family: var(--mono);
@@ -613,6 +659,11 @@ footer {
 .post-item h3 { font-size: 1.35rem; transition: color 0.15s ease; }
 .post-item:hover h3, .post-item:focus-visible h3 { color: var(--accent); }
 .post-item p { margin: 10px 0 0; color: var(--text-dim); font-size: 0.98rem; max-width: 60ch; }
+@media (max-width: 640px) {
+  .post-item { grid-template-columns: 1fr; gap: 8px; }
+  .post-item .post-media { flex-direction: row; align-items: center; gap: 12px; }
+  .post-item .post-thumb { width: 72px; flex: none; }
+}
 .post-item .post-tags { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
 .post-item .post-tags span {
   font-family: var(--mono);

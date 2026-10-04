@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
@@ -35,18 +36,31 @@ export default function BuildingCellarIndexPost() {
             <Link className="back-link" href="/blog">
               ← All posts
             </Link>
-            <div className="eyebrow">BUILD LOG</div>
-            <h1>Building Cellar Index: Teaching a Model Which Wines Are About to Change Price</h1>
-            <p className="lede">
-              Ten years of government PDF price lists, three production
-              models, and a lot of features that didn&apos;t make the cut.
-              Here&apos;s how Cellar Index forecasts wine prices — and what
-              I&apos;d tune next.
-            </p>
-            <div className="article-meta">
-              <span>October 1, 2026</span>
-              <span>8 min read</span>
-              <span>MLOps</span>
+            <div className="post-intro-grid">
+              <div>
+                <div className="eyebrow">BUILD LOG</div>
+                <h1>Building Cellar Index: Teaching a Model Which Wines Are About to Change Price</h1>
+                <p className="lede">
+                  Ten years of government PDF price lists, three production
+                  models, and a lot of features that didn&apos;t make the
+                  cut. Here&apos;s how Cellar Index forecasts wine prices —
+                  and what I&apos;d tune next.
+                </p>
+                <div className="article-meta">
+                  <span>October 1, 2026</span>
+                  <span>8 min read</span>
+                  <span>MLOps</span>
+                </div>
+              </div>
+              <Image
+                className="post-title-image"
+                src="/blog/building-cellar-index/thumb.jpg"
+                alt="A gold forecasting price chart rising into a network of nodes, with a wine glass and bottle outlined in gold on a dark navy background"
+                width={720}
+                height={540}
+                priority
+                sizes="(max-width: 780px) 100vw, 50vw"
+              />
             </div>
           </div>
         </section>

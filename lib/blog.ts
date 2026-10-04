@@ -6,9 +6,26 @@ export type BlogPost = {
   dateDisplay: string;
   readTime: string;
   tags: string[];
+  /** Path under /public to a ~720x540 (4:3) thumbnail. Shown on the blog
+   * index card and next to the post's own title. Optional for older posts
+   * published before every post carried an image; new posts should set it. */
+  image?: string;
+  imageAlt?: string;
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "building-alpaca-explorer",
+    title: "Building Alpaca Explorer: Asking the Market a Question Instead of Reading a Dashboard",
+    excerpt:
+      "A chat interface over live Alpaca market data, with Claude running a read-only tool-use loop instead of a wall of tickers. The architecture, the \"unusual options activity\" heuristic, and what I'd build next.",
+    date: "2026-10-04",
+    dateDisplay: "October 4, 2026",
+    readTime: "7 min read",
+    tags: ["Build log", "Agentic AI"],
+    image: "/blog/building-alpaca-explorer/thumb.jpg",
+    imageAlt: "Gold candlestick chart cresting into a network of connected nodes on a dark navy background",
+  },
   {
     slug: "building-cellar-index",
     title: "Building Cellar Index: Teaching a Model Which Wines Are About to Change Price",
@@ -18,6 +35,8 @@ export const blogPosts: BlogPost[] = [
     dateDisplay: "October 1, 2026",
     readTime: "8 min read",
     tags: ["Build log", "MLOps"],
+    image: "/blog/building-cellar-index/thumb.jpg",
+    imageAlt: "A gold forecasting price chart rising into a network of nodes, with a wine glass and bottle outlined in gold on a dark navy background",
   },
   {
     slug: "building-moodlens",
@@ -28,6 +47,8 @@ export const blogPosts: BlogPost[] = [
     dateDisplay: "September 26, 2026",
     readTime: "5 min read",
     tags: ["Build log", "Privacy"],
+    image: "/blog/building-moodlens/thumb.jpg",
+    imageAlt: "A gold line-art profile silhouette beside a glowing crescent moon and an arc of moon phases on a dark navy background",
   },
   {
     slug: "review-intelligence-prototype",
@@ -38,6 +59,8 @@ export const blogPosts: BlogPost[] = [
     dateDisplay: "September 18, 2026",
     readTime: "7 min read",
     tags: ["Applied NLP", "Client pitch"],
+    image: "/blog/review-intelligence-prototype/thumb.jpg",
+    imageAlt: "Gold star-rating review cards dissolving into data particles connected to a network of hospitality icons on a dark navy background",
   },
   {
     slug: "building-photonester",
@@ -48,6 +71,8 @@ export const blogPosts: BlogPost[] = [
     dateDisplay: "September 16, 2026",
     readTime: "6 min read",
     tags: ["Build log", "On-device ML"],
+    image: "/blog/building-photonester/thumb.jpg",
+    imageAlt: "Gold photo-frame icons clustering into a smartphone outline on a dark navy background",
   },
   {
     slug: "custom-model-vs-api",
@@ -58,5 +83,7 @@ export const blogPosts: BlogPost[] = [
     dateDisplay: "September 14, 2026",
     readTime: "9 min read",
     tags: ["Decision guide", "ML strategy"],
+    image: "/blog/custom-model-vs-api/thumb.jpg",
+    imageAlt: "Two gold paths, one lined with network nodes and one with API brackets, converging at a glowing decision point on a dark navy background",
   },
 ];
