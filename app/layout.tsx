@@ -1,7 +1,19 @@
+import fs from "node:fs";
+import path from "node:path";
 import type { Metadata } from "next";
 import { Fraunces, Work_Sans, IBM_Plex_Mono } from "next/font/google";
 import CookieConsent from "./components/CookieConsent";
-import "./globals.css";
+
+// Inlined (not linked) on purpose: the whole stylesheet is ~30KB raw, small
+// enough that a <style> tag in the initial HTML beats a separate
+// render-blocking <link> request — PageSpeed was flagging that extra round
+// trip as delaying LCP/FCP. Stripped of comments/whitespace to keep the
+// inlined payload lean; read once at module load (build time), not per-request.
+const globalCss = fs
+  .readFileSync(path.join(process.cwd(), "app/globals.css"), "utf8")
+  .replace(/\/\*[\s\S]*?\*\//g, "")
+  .replace(/\s+/g, " ")
+  .trim();
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -105,6 +117,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${fraunces.variable} ${workSans.variable} ${ibmPlexMono.variable}`}
     >
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: globalCss }} />
+      </head>
       <body>
         <script
           type="application/ld+json"
