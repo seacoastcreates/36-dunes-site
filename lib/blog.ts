@@ -15,6 +15,18 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "building-hearth-index",
+    title: "Building Hearth Index: Forecasting Home Prices for Every ZIP Code, Not Just the Metro",
+    excerpt:
+      "A one-day feasibility spike that forecasts home values for 894 metros and 26,268 ZIP codes, backtested against nine years of real outcomes. The two-part model, the ablation discipline, and the bugs it caught along the way.",
+    date: "2026-10-09",
+    dateDisplay: "October 9, 2026",
+    readTime: "8 min read",
+    tags: ["Build log", "MLOps"],
+    image: "/blog/building-hearth-index/thumb.jpg",
+    imageAlt: "A glowing amber city skyline hub connected to surrounding neighborhoods by forecast lines, on a dark clay-terracotta background",
+  },
+  {
     slug: "building-alpaca-explorer",
     title: "Building Alpaca Explorer: Asking the Market a Question Instead of Reading a Dashboard",
     excerpt:
