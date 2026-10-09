@@ -133,7 +133,6 @@ export default function LoginForm() {
 
       {!pendingGoogleCredential && (
         <>
-          <div className="auth-divider">or</div>
           <button
             type="button"
             className="btn btn-ghost"

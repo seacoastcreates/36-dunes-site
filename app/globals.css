@@ -736,7 +736,8 @@ footer {
   margin-block: 20px;
 }
 .auth-note { color: var(--band-dim); font-size: 0.9rem; margin-bottom: 16px; }
-.auth-links { margin-top: 14px; }
+.auth-links { margin-top: 14px; text-align: center; }
+.auth-links + .btn { margin-top: 20px; }
 
 .portal-shell { min-height: 100vh; }
 .portal-shell header {
