@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://36dunes.com", lastModified: now, changeFrequency: "monthly", priority: 1 },
     { url: "https://36dunes.com/services", lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: "https://36dunes.com/work/photonester", lastModified: now, changeFrequency: "yearly", priority: 0.8 },
+    { url: "https://36dunes.com/work/call-list", lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: "https://36dunes.com/blog", lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: "https://36dunes.com/rfp", lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     {

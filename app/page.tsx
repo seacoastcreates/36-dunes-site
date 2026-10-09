@@ -148,10 +148,57 @@ export default function Home() {
                 <h2>Proof, not a portfolio deck.</h2>
               </div>
               <p>
-                One recent build, detailed the way we&apos;d hand it to another
-                engineer — not dressed up for a pitch.
+                Recent builds, detailed the way we&apos;d hand them to
+                another engineer — not dressed up for a pitch.
               </p>
             </div>
+            <div className="case-card reveal" data-anim="">
+              <div>
+                <div className="eyebrow">CASE STUDY — SALES PROSPECTING</div>
+                <h3>Call List: when a pipeline dries up, the problem is usually the list.</h3>
+                <p className="narrative">
+                  A sales team with a defined, narrow market had run out of
+                  leads worth calling — the usual sources were stale
+                  directory exports and old trade-show lists. We built a
+                  single ranked list instead: one row per real business,
+                  researched for fit, with a direct contact where one could
+                  be found and a specific reason to call, not a form-letter
+                  opener. Every contact gets checked against the business&apos;s
+                  own site before it makes the list.
+                </p>
+                <Link className="back-link case-read-more" href="/work/call-list">
+                  Read the full case study →
+                </Link>
+              </div>
+              <div className="case-side">
+                <dl className="spec-list">
+                  <div className="spec-row">
+                    <dt>Scope</dt>
+                    <dd>Regional, one industry</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Method</dt>
+                    <dd>Researched, not scraped</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Per lead</dt>
+                    <dd>Fit score, contact, call reasons</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Verification</dt>
+                    <dd>Checked against the business&apos;s own site</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Timeline</dt>
+                    <dd>Days, not weeks</dd>
+                  </div>
+                </dl>
+                <Link className="btn btn-ghost case-cta" href="/work/call-list#get-a-list">
+                  Get a sample for my market →
+                </Link>
+              </div>
+            </div>
+
             <div className="case-card reveal" data-anim="">
               <div>
                 <div className="eyebrow">CASE STUDY — CONSUMER iOS</div>
@@ -287,6 +334,56 @@ export default function Home() {
         </section>
 
         <section className="band" id="contact">
+          <svg
+            className="contact-strings"
+            viewBox="0 0 640 520"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M40 60 C 140 10, 260 10, 340 70 C 390 110, 460 40, 560 90"
+              stroke="var(--band-accent)"
+              strokeWidth="3"
+              strokeLinecap="round"
+              opacity="0.1"
+            />
+            <path
+              d="M20 140 C 130 80, 250 80, 330 150 C 380 190, 470 120, 600 170"
+              stroke="var(--band-accent)"
+              strokeWidth="3"
+              strokeLinecap="round"
+              opacity="0.14"
+            />
+            <path
+              d="M0 230 C 120 160, 240 160, 320 235 C 375 280, 480 210, 620 260"
+              stroke="var(--band-accent)"
+              strokeWidth="3"
+              strokeLinecap="round"
+              opacity="0.18"
+            />
+            <path
+              d="M30 320 C 150 250, 270 250, 350 325 C 400 365, 500 300, 610 345"
+              stroke="var(--band-accent)"
+              strokeWidth="3"
+              strokeLinecap="round"
+              opacity="0.14"
+            />
+            <path
+              d="M10 410 C 140 340, 260 340, 340 415 C 395 460, 490 390, 600 430"
+              stroke="var(--band-accent)"
+              strokeWidth="3"
+              strokeLinecap="round"
+              opacity="0.1"
+            />
+            <path
+              d="M50 490 C 160 430, 270 430, 345 495 C 395 535, 480 470, 580 500"
+              stroke="var(--band-accent)"
+              strokeWidth="3"
+              strokeLinecap="round"
+              opacity="0.07"
+            />
+          </svg>
           <div className="wrap contact-inner">
             <div className="eyebrow">START A PROJECT</div>
             <h2>Let&apos;s build something worth shipping.</h2>
