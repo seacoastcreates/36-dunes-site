@@ -105,7 +105,7 @@ export default function CallListCaseStudy() {
                 alt="An illustrative example of a single researched lead card, showing a fit score, tier badge, contact info, talking points, and a call brief, with the specific contact details and research blurred out"
                 width={1100}
                 height={462}
-                sizes="(max-width: 780px) 100vw, 68ch"
+                sizes="(max-width: 780px) 100vw, 80ch"
               />
               <figcaption>
                 Illustrative example, built to show the shape of the
@@ -132,7 +132,7 @@ export default function CallListCaseStudy() {
                 alt="An illustrative example of locked rows in the full prospect list, showing rank, tier, industry, location, and which contact fields are available, with names withheld"
                 width={1100}
                 height={340}
-                sizes="(max-width: 780px) 100vw, 68ch"
+                sizes="(max-width: 780px) 100vw, 80ch"
               />
               <figcaption>
                 Again, illustrative — the mechanic is real, the rows aren&apos;t.

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SearchBox from "./SearchBox";
 
 export default function SiteHeader() {
   return (
@@ -46,6 +47,7 @@ export default function SiteHeader() {
           <Link href="/#about">About</Link>
         </nav>
         <div className="header-ctas">
+          <SearchBox />
           <a className="btn btn-ghost" href="/portal/login">
             Clients
           </a>
@@ -59,6 +61,7 @@ export default function SiteHeader() {
       </div>
       <input type="checkbox" id="nav-toggle" />
       <div className="wrap mobile-menu">
+        <SearchBox alwaysOpen />
         <a href="/services">Services</a>
         <Link href="/#work">Work</Link>
         <a href="/blog">Blog</a>

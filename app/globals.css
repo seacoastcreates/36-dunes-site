@@ -134,6 +134,48 @@ nav.primary a {
 }
 nav.primary a:hover, nav.primary a:focus-visible { color: var(--text); }
 .header-ctas { display: flex; align-items: center; gap: 10px; }
+
+.search-box { display: flex; align-items: center; height: 40px; }
+.search-input {
+  width: 0;
+  min-width: 0;
+  opacity: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--bg-elev);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  height: 36px;
+  transition: width 0.28s ease, opacity 0.2s ease, padding 0.28s ease, border-color 0.2s ease;
+}
+.search-input::placeholder { color: var(--text-dim); }
+.search-box:hover .search-input,
+.search-box:focus-within .search-input,
+.search-box.always-open .search-input {
+  width: 180px;
+  opacity: 1;
+  padding: 0 14px;
+  border-color: var(--line);
+}
+.search-input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.search-toggle {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.search-toggle:hover { color: var(--accent); }
+.search-box.always-open { gap: 8px; margin-bottom: 4px; }
 .btn {
   font-family: var(--sans);
   font-weight: 600;
@@ -510,7 +552,7 @@ footer {
 .band .back-link:hover, .band .back-link:focus-visible { color: var(--band-accent); }
 
 /* long-form article / case-study prose */
-.prose { max-width: 68ch; }
+.prose { max-width: 80ch; }
 .prose > * + * { margin-top: 1.3em; }
 .prose h2 { font-size: 1.55rem; margin-top: 2em; }
 .prose h3 { font-size: 1.22rem; margin-top: 1.8em; }
@@ -688,6 +730,22 @@ footer {
   border-radius: 999px;
   padding: 3px 10px;
 }
+
+/* search results page */
+.search-page-form { max-width: 520px; margin-bottom: 8px; }
+.search-page-form input {
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 13px 20px;
+}
+.search-page-form input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.count { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); margin: 24px 0 4px; }
+.search-empty { color: var(--text-dim); margin-top: 24px; }
 
 /* lead magnet */
 .lead-form { max-width: 460px; }
