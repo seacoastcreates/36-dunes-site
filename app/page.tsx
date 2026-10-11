@@ -336,53 +336,79 @@ export default function Home() {
         <section className="band" id="contact">
           <svg
             className="contact-strings"
-            viewBox="0 0 640 520"
+            viewBox="0 0 700 700"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
           >
-            <path
-              d="M40 60 C 140 10, 260 10, 340 70 C 390 110, 460 40, 560 90"
-              stroke="var(--band-accent)"
-              strokeWidth="3"
-              strokeLinecap="round"
-              opacity="0.1"
-            />
-            <path
-              d="M20 140 C 130 80, 250 80, 330 150 C 380 190, 470 120, 600 170"
-              stroke="var(--band-accent)"
-              strokeWidth="3"
-              strokeLinecap="round"
-              opacity="0.14"
-            />
-            <path
-              d="M0 230 C 120 160, 240 160, 320 235 C 375 280, 480 210, 620 260"
-              stroke="var(--band-accent)"
-              strokeWidth="3"
-              strokeLinecap="round"
-              opacity="0.18"
-            />
-            <path
-              d="M30 320 C 150 250, 270 250, 350 325 C 400 365, 500 300, 610 345"
-              stroke="var(--band-accent)"
-              strokeWidth="3"
-              strokeLinecap="round"
-              opacity="0.14"
-            />
-            <path
-              d="M10 410 C 140 340, 260 340, 340 415 C 395 460, 490 390, 600 430"
-              stroke="var(--band-accent)"
-              strokeWidth="3"
-              strokeLinecap="round"
-              opacity="0.1"
-            />
-            <path
-              d="M50 490 C 160 430, 270 430, 345 495 C 395 535, 480 470, 580 500"
-              stroke="var(--band-accent)"
-              strokeWidth="3"
-              strokeLinecap="round"
-              opacity="0.07"
-            />
+            <defs>
+              <filter id="contact-strings-soft" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="2.4" />
+              </filter>
+              <filter id="contact-strings-softer" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3.2" />
+              </filter>
+            </defs>
+
+            {/* back: thinnest, faintest, most blurred — reads as furthest away */}
+            <g filter="url(#contact-strings-softer)" opacity="0.45">
+              <path
+                d="M700 500 C 600 480, 585 420, 520 400 C 440 375, 420 320, 350 290 C 280 260, 250 210, 220 160 C 205 135, 215 110, 235 100"
+                stroke="var(--band-accent)"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M690 640 C 560 600, 545 520, 450 500 C 370 483, 350 410, 265 390 C 210 377, 195 330, 175 275 C 165 248, 178 225, 200 220"
+                stroke="var(--band-accent)"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </g>
+
+            {/* mid */}
+            <g filter="url(#contact-strings-soft)" opacity="0.15">
+              <path
+                d="M700 420 C 585 410, 565 340, 480 320 C 400 300, 380 230, 300 205 C 240 186, 220 140, 210 85 C 207 65, 222 50, 240 55"
+                stroke="var(--band-accent)"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+              />
+              <path
+                d="M700 580 C 610 575, 585 500, 495 485 C 410 470, 390 390, 305 375 C 245 364, 225 310, 215 250 C 210 220, 228 200, 250 205"
+                stroke="var(--band-accent)"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+              />
+              <path
+                d="M700 330 C 590 335, 565 260, 480 245 C 400 231, 385 160, 305 140 C 250 126, 235 85, 245 45 C 248 30, 263 22, 275 32"
+                stroke="var(--band-accent)"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+              />
+            </g>
+
+            {/* front: boldest, crisp, tight curled tips — reads as nearest */}
+            <g opacity="0.24">
+              <path
+                d="M700 300 C 575 290, 555 210, 465 190 C 380 171, 365 95, 280 70 C 230 55, 210 30, 195 5 C 190 -5, 180 -8, 172 0 C 166 7, 172 15, 180 12"
+                stroke="var(--band-accent)"
+                strokeWidth="3.6"
+                strokeLinecap="round"
+              />
+              <path
+                d="M700 460 C 590 455, 565 375, 475 358 C 390 342, 372 260, 288 238 C 230 223, 212 170, 218 110 C 220 88, 238 75, 252 85 C 262 92, 258 104, 246 100"
+                stroke="var(--band-accent)"
+                strokeWidth="3.6"
+                strokeLinecap="round"
+              />
+              <path
+                d="M700 600 C 615 610, 585 540, 500 525 C 420 511, 402 435, 320 415 C 262 401, 245 350, 252 295 C 255 272, 274 260, 288 272 C 298 281, 292 292, 280 288"
+                stroke="var(--band-accent)"
+                strokeWidth="3.2"
+                strokeLinecap="round"
+              />
+            </g>
           </svg>
           <div className="wrap contact-inner">
             <div className="eyebrow">START A PROJECT</div>

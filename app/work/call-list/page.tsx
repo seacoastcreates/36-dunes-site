@@ -89,6 +89,23 @@ export default function CallListCaseStudy() {
               opener.
             </p>
 
+            <figure>
+              <Link
+                href="#get-a-list"
+                className="call-list-banner-link"
+                aria-label="Request your free 10-lead preview — jump to the form"
+              >
+                <Image
+                  src="/call-list-banner@2x.png"
+                  alt="36 Dunes Call List — request a free 10-lead preview. Ten ranked prospects, each with the reason to call."
+                  width={1200}
+                  height={320}
+                  className="call-list-banner-img"
+                  sizes="(max-width: 780px) 100vw, 80ch"
+                />
+              </Link>
+            </figure>
+
             <h2>What a researched lead actually looks like</h2>
             <p>
               This is a mocked-up example, not the real client&apos;s data —

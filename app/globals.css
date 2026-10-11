@@ -396,10 +396,10 @@ section.plain { padding-block: 84px; }
 .contact-strings {
   position: absolute;
   top: 50%;
-  right: -60px;
+  right: -40px;
   transform: translateY(-50%);
-  width: 640px;
-  max-width: 60vw;
+  width: 600px;
+  max-width: 62vw;
   height: auto;
   pointer-events: none;
 }
@@ -428,6 +428,26 @@ section.page-intro { padding-block: 64px 0; }
 
 .rfp-form { max-width: 780px; }
 .contact-form { max-width: 620px; margin-top: 32px; }
+.form-promo {
+  max-width: 780px;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  background: rgba(224, 178, 94, 0.1);
+  border: 1px solid var(--band-accent);
+  border-radius: 12px;
+}
+.form-promo-eyebrow {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--band-accent);
+  margin-bottom: 6px;
+}
+.form-promo p { margin: 0; color: var(--band-text); font-size: 0.98rem; }
+.form-promo strong { color: var(--band-accent); }
 .hp-field { position: absolute; left: -9999px; }
 .form-grid {
   display: grid;
@@ -623,6 +643,25 @@ footer {
   object-fit: cover;
   border-radius: 14px;
   border: 1px solid var(--line);
+}
+
+/* clickable banner, e.g. the call-list lead-preview promo */
+.call-list-banner-link {
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.call-list-banner-link:hover, .call-list-banner-link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
+.call-list-banner-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.call-list-banner-img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  display: block;
 }
 
 /* full-width image inside post body copy */
