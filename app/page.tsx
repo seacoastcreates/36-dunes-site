@@ -142,6 +142,19 @@ export default function Home() {
 
         <section className="plain" id="work">
           <div className="wrap">
+            <video
+              className="work-video"
+              src="/work/prospect-radar.mp4"
+              poster="/work/prospect-radar-poster.jpg"
+              controls
+              playsInline
+              preload="metadata"
+              width={1280}
+              height={720}
+            >
+              Your browser doesn&apos;t support embedded video. You can{" "}
+              <a href="/work/prospect-radar.mp4">download the video</a> instead.
+            </video>
             <div className="section-head">
               <div>
                 <div className="eyebrow">FIELD NOTES</div>
@@ -343,10 +356,10 @@ export default function Home() {
           >
             <defs>
               <filter id="contact-strings-soft" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="2.4" />
+                <feGaussianBlur stdDeviation="1" />
               </filter>
               <filter id="contact-strings-softer" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="3.2" />
+                <feGaussianBlur stdDeviation="1.6" />
               </filter>
             </defs>
 
@@ -430,6 +443,10 @@ export default function Home() {
               </span>
               <span>
                 <strong>Engagements</strong> — Fixed-scope &amp; embedded
+              </span>
+              <span>
+                <strong>Phone</strong> —{" "}
+                <a href="tel:+18572094404">(857) 209-4404</a>
               </span>
             </div>
           </div>

@@ -160,7 +160,7 @@ nav.primary a:hover, nav.primary a:focus-visible { color: var(--text); }
   border-color: var(--line);
 }
 .search-input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-.search-toggle {
+.search-toggle, .phone-link {
   flex: none;
   width: 40px;
   height: 40px;
@@ -174,7 +174,7 @@ nav.primary a:hover, nav.primary a:focus-visible { color: var(--text); }
   cursor: pointer;
   transition: color 0.15s ease;
 }
-.search-toggle:hover { color: var(--accent); }
+.search-toggle:hover, .phone-link:hover, .phone-link:focus-visible { color: var(--accent); }
 .search-box.always-open { gap: 8px; margin-bottom: 4px; }
 .btn {
   font-family: var(--sans);
@@ -266,6 +266,16 @@ nav.primary a:hover, nav.primary a:focus-visible { color: var(--text); }
 /* ---------- sections ---------- */
 section.plain { padding-block: 84px; }
 .band { background: var(--band-bg); color: var(--band-text); }
+.work-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  margin-bottom: 44px;
+  background: var(--band-bg);
+  display: block;
+}
 .section-head {
   display: flex;
   justify-content: space-between;
@@ -412,6 +422,14 @@ section.plain { padding-block: 84px; }
 .contact-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; align-items: center; }
 .contact-meta { margin-top: 40px; display: flex; gap: 28px; flex-wrap: wrap; font-family: var(--mono); font-size: 0.82rem; color: var(--band-dim); }
 .contact-meta strong { color: var(--band-text); font-weight: 500; }
+.contact-meta a {
+  color: var(--band-text);
+  text-decoration: underline;
+  text-decoration-color: var(--band-line);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+.contact-meta a:hover, .contact-meta a:focus-visible { color: var(--band-accent); }
 
 /* rfp page */
 /* `section.` qualifier matches section.plain's specificity so this override
@@ -528,6 +546,10 @@ footer {
   color: var(--text-dim);
 }
 .footer-brand { display: flex; align-items: center; gap: 8px; font-family: var(--mono); }
+.footer-contact { display: flex; align-items: center; gap: 8px; }
+.footer-contact a { color: var(--text-dim); text-decoration: none; transition: color 0.15s ease; }
+.footer-contact a:hover, .footer-contact a:focus-visible { color: var(--text); }
+.footer-contact span { color: var(--line); }
 
 .cookie-banner {
   position: fixed;

@@ -37,7 +37,7 @@ export default function AiReadinessChecklistPage() {
                 <h2 className="lead-checklist-title">AI Readiness Checklist</h2>
                 <ol>
                   <li>
-                    <strong>1. Volume</strong>
+                    <strong>Volume</strong>
                     <span>
                       Do you have enough historical examples of the outcome
                       you&apos;re trying to predict? Hundreds to thousands
@@ -46,7 +46,7 @@ export default function AiReadinessChecklistPage() {
                     </span>
                   </li>
                   <li>
-                    <strong>2. Label quality</strong>
+                    <strong>Label quality</strong>
                     <span>
                       Are outcomes recorded consistently, or does
                       &quot;success&quot; mean something different
@@ -55,7 +55,7 @@ export default function AiReadinessChecklistPage() {
                     </span>
                   </li>
                   <li>
-                    <strong>3. Accessibility</strong>
+                    <strong>Accessibility</strong>
                     <span>
                       Is the data queryable in one place, or scattered
                       across five systems that don&apos;t talk to each
@@ -64,7 +64,7 @@ export default function AiReadinessChecklistPage() {
                     </span>
                   </li>
                   <li>
-                    <strong>4. A single success metric</strong>
+                    <strong>A single success metric</strong>
                     <span>
                       Can you state, in one sentence, what &quot;the model
                       is working&quot; means — a precision target, a dollar
@@ -73,7 +73,7 @@ export default function AiReadinessChecklistPage() {
                     </span>
                   </li>
                   <li>
-                    <strong>5. A human baseline</strong>
+                    <strong>A human baseline</strong>
                     <span>
                       Do you know how well your current manual process
                       performs? Without a baseline, there&apos;s nothing
@@ -81,7 +81,7 @@ export default function AiReadinessChecklistPage() {
                     </span>
                   </li>
                   <li>
-                    <strong>6. Documented edge cases</strong>
+                    <strong>Documented edge cases</strong>
                     <span>
                       Do you know the weird cases that already break your
                       current process? A model will hit them too — better
@@ -89,7 +89,7 @@ export default function AiReadinessChecklistPage() {
                     </span>
                   </li>
                   <li>
-                    <strong>7. Stakeholder buy-in on the decision</strong>
+                    <strong>Stakeholder buy-in on the decision</strong>
                     <span>
                       Will the model&apos;s output actually change what
                       someone does — or will it get ignored the way the
@@ -97,7 +97,7 @@ export default function AiReadinessChecklistPage() {
                     </span>
                   </li>
                   <li>
-                    <strong>8. Budget for the boring part</strong>
+                    <strong>Budget for the boring part</strong>
                     <span>
                       Have you budgeted for monitoring and retraining, not
                       just the initial build? A model with no maintenance
