@@ -4,6 +4,6 @@ export type RetainerPlan = {
 };
 
 export const retainerPlans: RetainerPlan[] = [
-  { priceId: "price_1UGOrXExxTpnUICK57xPXFub", label: "Standard — $500/mo" },
-  { priceId: "price_1UGOs4ExxTpnUICKJ8o0FJzT", label: "Extended — $1,500/mo" },
-];
+  { priceId: process.env.STRIPE_STANDARD_PRICE_ID ?? "", label: "Standard — $500/mo" },
+  { priceId: process.env.STRIPE_EXTENDED_PRICE_ID ?? "", label: "Extended — $1,500/mo" },
+].filter((plan) => plan.priceId.startsWith("price_"));

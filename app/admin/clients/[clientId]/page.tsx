@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { adminDb } from "../../../lib/firebase/admin";
 import InviteLinkButton from "../../components/InviteLinkButton";
+import ProjectUpdateForm from "../../components/ProjectUpdateForm";
 
 export const metadata: Metadata = {
   title: "Client — 36 Dunes Admin",
@@ -19,6 +20,7 @@ type EngagementRow = {
   type: "one_time" | "retainer";
   status: string;
   amountTotal?: number;
+  summary?: string;
 };
 
 type InvoiceRow = {
@@ -79,8 +81,8 @@ export default async function AdminClientDetailPage({
         <div>
           <h2>Invite</h2>
           <p>
-            {client.passwordSet
-              ? "This client has already signed in and set a password."
+            {client.status === "active"
+              ? "This client has activated their account and can sign in to their dashboard."
               : "This client hasn't signed in yet — generate a link to send them."}
           </p>
         </div>
@@ -108,7 +110,7 @@ export default async function AdminClientDetailPage({
           <tbody>
             {engagements.map((e) => (
               <tr key={e.id}>
-                <td>{e.title}</td>
+                <td>{e.title}<ProjectUpdateForm clientId={clientId} projectId={e.id} status={e.status} summary={e.summary ?? ""} /></td>
                 <td>{e.type === "retainer" ? "Retainer" : "One-time"}</td>
                 <td>
                   <span className={`status-pill is-${e.status}`}>{e.status}</span>

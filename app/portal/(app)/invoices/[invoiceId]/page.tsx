@@ -3,29 +3,21 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { requireClient } from "../../../../lib/client-guard";
 import { adminDb } from "../../../../lib/firebase/admin";
+import InvoicePaymentButton from "../../../../components/InvoicePaymentButton";
+import { payableInvoice, paymentConfiguration } from "../../../../lib/payment-policy";
+import { dateMillis, formatDate, formatMoney } from "../../../../lib/portal/format";
 
 export const metadata: Metadata = {
   title: "Invoice — 36 Dunes",
   robots: { index: false, follow: false },
 };
 
-function formatCents(cents: number) {
-  return (cents / 100).toLocaleString("en-US", { style: "currency", currency: "USD" });
-}
-
-function formatDate(value: unknown) {
-  if (!value || typeof value !== "object" || !("toDate" in value)) return null;
-  return (value as { toDate: () => Date }).toDate().toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
 export default async function PortalInvoiceDetailPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ invoiceId: string }>;
+  searchParams: Promise<{ checkout?: string }>;
 }) {
   const { client } = await requireClient();
   const { invoiceId } = await params;
@@ -39,14 +31,16 @@ export default async function PortalInvoiceDetailPage({
   if (!invoiceDoc.exists) notFound();
   const invoice = invoiceDoc.data()!;
 
-  const dueDate = formatDate(invoice.dueDate);
-  const sentDate = formatDate(invoice.sentAt);
-  const paidDate = formatDate(invoice.paidAt);
+  const dueDate = formatDate(dateMillis(invoice.dueDate), true);
+  const sentDate = formatDate(dateMillis(invoice.sentAt));
+  const paidDate = formatDate(dateMillis(invoice.paidAt));
+  const { checkout } = await searchParams;
+  const payments = paymentConfiguration(process.env);
 
   return (
     <>
-      <Link className="back-link" href={`/portal/engagements/${invoice.engagementId}`}>
-        ← Engagement
+      <Link className="back-link" href="/portal/billing">
+        ← Billing
       </Link>
 
       <div className="section-head">
@@ -57,7 +51,7 @@ export default async function PortalInvoiceDetailPage({
         <p>
           <span className={`status-pill is-${invoice.status}`}>{invoice.status}</span>
           {"  "}
-          {formatCents(invoice.amountDue)}
+          {formatMoney(invoice.amountDue)}
         </p>
       </div>
 
@@ -77,6 +71,13 @@ export default async function PortalInvoiceDetailPage({
           </tr>
         </tbody>
       </table>
+      {invoice.status !== "paid" && checkout === "success" && (
+        <p role="status">Your checkout was submitted. Payment confirmation may take a moment. Refresh this page to check its status.</p>
+      )}
+      {invoice.status !== "paid" && checkout === "canceled" && <p role="status">Checkout was canceled. You can try again when you’re ready.</p>}
+      {payableInvoice(invoice) && (payments.ready ? (
+        <InvoicePaymentButton invoiceId={invoiceId} />
+      ) : <p>Online payments are not available yet. Contact 36 Dunes with any billing questions.</p>)}
     </>
   );
 }

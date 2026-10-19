@@ -1,23 +1,13 @@
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
 import { isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
 import { auth } from "../../../lib/firebase/client";
+import { establishPortalSession, signInErrorMessage } from "../../../lib/auth-client";
 
 type Status = "checking" | "needs-email" | "submitting" | "invalid" | "error";
 
-async function establishSession(idToken: string) {
-  const response = await fetch("/api/auth/session", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ idToken }),
-  });
-  if (!response.ok) throw new Error("Failed to establish session");
-}
-
 export default function InviteForm() {
-  const router = useRouter();
   const [status, setStatus] = useState<Status>("checking");
   const [error, setError] = useState<string | null>(null);
 
@@ -40,12 +30,12 @@ export default function InviteForm() {
     try {
       const result = await signInWithEmailLink(auth, email, window.location.href);
       const idToken = await result.user.getIdToken();
-      await establishSession(idToken);
-      router.push("/portal/set-password");
-      router.refresh();
-    } catch {
+      window.location.replace(await establishPortalSession(idToken));
+    } catch (error) {
       setStatus("error");
-      setError("That email doesn't match this invite, or the link has expired.");
+      setError((error as { code?: string })?.code
+        ? "That email doesn't match this invite, or the link has expired."
+        : signInErrorMessage(error));
     }
   };
 

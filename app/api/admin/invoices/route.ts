@@ -21,8 +21,8 @@ export async function POST(request: Request) {
       { status: 400 }
     );
   }
-  if (!Number.isFinite(amountDue) || amountDue <= 0) {
-    return Response.json({ error: "amountDue must be a positive number" }, { status: 400 });
+  if (!Number.isSafeInteger(amountDue) || amountDue < 50 || amountDue > 99_999_999) {
+    return Response.json({ error: "amountDue must be between $0.50 and $999,999.99" }, { status: 400 });
   }
 
   const engagementDoc = await adminDb

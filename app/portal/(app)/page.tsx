@@ -1,125 +1,42 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { requireClient } from "../../lib/client-guard";
-import { adminDb } from "../../lib/firebase/admin";
+import { getPortalData } from "../../lib/portal/data";
+import { dashboardTotals, formatMoney, isOutstanding } from "../../lib/portal/format";
+import ProjectCard from "../components/ProjectCard";
+import InvoiceTable from "../components/InvoiceTable";
 
 export const metadata: Metadata = {
-  title: "Dashboard — 36 Dunes",
+  title: "Client dashboard — 36 Dunes",
   robots: { index: false, follow: false },
 };
 
-function formatCents(cents: number) {
-  return (cents / 100).toLocaleString("en-US", { style: "currency", currency: "USD" });
-}
-
-type EngagementRow = {
-  id: string;
-  title: string;
-  type: "one_time" | "retainer";
-  status: string;
-  amountTotal?: number;
-};
-
-type InvoiceRow = {
-  id: string;
-  description: string;
-  amountDue: number;
-  status: string;
-};
-
 export default async function PortalDashboardPage() {
-  const { client } = await requireClient();
+  const { client, projects, invoices } = await getPortalData();
+  const totals = dashboardTotals(projects, invoices);
+  const currentProjects = projects.filter((project) => ["active", "planned", "on_hold"].includes(project.status));
+  const outstanding = invoices.filter((invoice) => isOutstanding(invoice.status));
 
-  const [engagementsSnap, invoicesSnap] = await Promise.all([
-    adminDb
-      .collection("clients")
-      .doc(client.id)
-      .collection("engagements")
-      .orderBy("createdAt", "desc")
-      .get(),
-    adminDb
-      .collection("clients")
-      .doc(client.id)
-      .collection("invoices")
-      .orderBy("createdAt", "desc")
-      .get(),
-  ]);
-
-  const engagements = engagementsSnap.docs.map(
-    (d) => ({ id: d.id, ...d.data() }) as EngagementRow
-  );
-  const invoices = invoicesSnap.docs.map((d) => ({ id: d.id, ...d.data() }) as InvoiceRow);
-
-  return (
-    <>
-      <div className="section-head">
-        <div>
-          <div className="eyebrow">DASHBOARD</div>
-          <h1>Welcome, {client.contactName || client.businessName}</h1>
-        </div>
-      </div>
-
-      <div className="section-head">
-        <h2>Engagements</h2>
-      </div>
-      {engagements.length === 0 ? (
-        <p className="empty-state">No engagements yet.</p>
-      ) : (
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Type</th>
-              <th>Status</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {engagements.map((e) => (
-              <tr key={e.id}>
-                <td>
-                  <Link href={`/portal/engagements/${e.id}`}>{e.title}</Link>
-                </td>
-                <td>{e.type === "retainer" ? "Retainer" : "One-time"}</td>
-                <td>
-                  <span className={`status-pill is-${e.status}`}>{e.status}</span>
-                </td>
-                <td>{e.type === "one_time" && e.amountTotal ? formatCents(e.amountTotal) : "—"}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-
-      <div className="section-head">
-        <h2>Invoices</h2>
-      </div>
-      {invoices.length === 0 ? (
-        <p className="empty-state">No invoices yet.</p>
-      ) : (
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Description</th>
-              <th>Amount</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {invoices.map((inv) => (
-              <tr key={inv.id}>
-                <td>
-                  <Link href={`/portal/invoices/${inv.id}`}>{inv.description}</Link>
-                </td>
-                <td>{formatCents(inv.amountDue)}</td>
-                <td>
-                  <span className={`status-pill is-${inv.status}`}>{inv.status}</span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-    </>
-  );
+  return <>
+    <div className="dashboard-heading">
+      <div className="eyebrow">YOUR CLIENT SPACE</div>
+      <h1>Welcome, {client.displayName}.</h1>
+      <p>{client.businessName ? `${client.businessName} · ` : ""}Your projects and payments, all in one place.</p>
+    </div>
+    <dl className="dashboard-stats">
+      <div><dt>Active projects</dt><dd>{totals.activeProjects}</dd><Link href="/portal/projects">Explore projects <span aria-hidden="true">↗</span></Link></div>
+      <div><dt>Outstanding balance</dt><dd>{formatMoney(totals.outstanding)}</dd><Link href="/portal/billing">{outstanding.length} {outstanding.length === 1 ? "invoice" : "invoices"} to review <span aria-hidden="true">↗</span></Link></div>
+      <div><dt>Total paid</dt><dd>{formatMoney(totals.paid)}</dd><Link href="/portal/billing?view=paid">Payment history <span aria-hidden="true">↗</span></Link></div>
+    </dl>
+    {totals.overdueCount > 0 && <div className="dashboard-notice"><strong>{totals.overdueCount} {totals.overdueCount === 1 ? "invoice needs" : "invoices need"} your attention.</strong> Review your outstanding invoices in <Link href="/portal/billing">Billing</Link>.</div>}
+    <section className="dashboard-section" aria-labelledby="current-projects">
+      <div className="section-head"><h2 id="current-projects">Current projects</h2><Link className="dashboard-text-link" href="/portal/projects">All projects <span aria-hidden="true">→</span></Link></div>
+      {currentProjects.length ? <div className="dashboard-project-grid">{currentProjects.slice(0, 4).map((project) => <ProjectCard key={project.id} project={project} />)}</div>
+        : <div className="dashboard-card dashboard-empty"><h3>You’re all set.</h3><p>New projects will appear here when they’re ready. You can find previous work in Projects.</p><Link href="/portal/projects">View projects →</Link></div>}
+    </section>
+    <section className="dashboard-section" aria-labelledby="outstanding-invoices">
+      <div className="section-head"><h2 id="outstanding-invoices">Outstanding invoices</h2><Link className="dashboard-text-link" href="/portal/billing">All billing <span aria-hidden="true">→</span></Link></div>
+      <div className="dashboard-card">{outstanding.length ? <InvoiceTable invoices={outstanding.slice(0, 5)} projects={projects} /> : <p className="empty-state">No outstanding invoices. You’re up to date.</p>}</div>
+    </section>
+    <aside className="dashboard-support"><div><h2>Let’s keep things moving.</h2><p>Have a question about a project or an invoice?</p></div><a className="btn btn-ghost" href="mailto:kirby@36dunes.com">Contact 36 Dunes</a></aside>
+  </>;
 }

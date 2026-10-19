@@ -1,7 +1,10 @@
-import { adminAuth } from "../../lib/firebase/admin";
+import { adminAuth, adminDb } from "../../lib/firebase/admin";
 import { getStripe } from "../../lib/stripe";
+import { requireAdminApi } from "../../lib/admin-guard";
+import { paymentConfiguration } from "../../lib/payment-policy";
 
 export async function GET() {
+  if (!await requireAdminApi()) return Response.json({ error: "Unauthorized" }, { status: 401 });
   const checks: Record<string, boolean> = {};
 
   try {
@@ -13,11 +16,21 @@ export async function GET() {
   }
 
   try {
-    getStripe(); // confirms the Stripe SDK imports/bundles cleanly and a key is configured
-    checks.stripeConfigured = true;
+    await adminDb.collection("clients").limit(1).get();
+    checks.firestore = true;
   } catch {
-    checks.stripeConfigured = false;
+    checks.firestore = false;
   }
 
-  return Response.json({ ok: Object.values(checks).every(Boolean), checks });
+  try {
+    const account = await getStripe().accounts.retrieve(null);
+    checks.stripeConnected = true;
+    checks.stripeAccountReady = !paymentConfiguration(process.env).live || !!(account.charges_enabled && account.details_submitted);
+  } catch {
+    checks.stripeConnected = false;
+  }
+
+  checks.paymentsEnabled = paymentConfiguration(process.env).ready;
+  const ok = Object.values(checks).every(Boolean);
+  return Response.json({ ok, checks }, { status: ok ? 200 : 503, headers: { "Cache-Control": "no-store" } });
 }

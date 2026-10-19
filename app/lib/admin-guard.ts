@@ -4,7 +4,7 @@ import { verifySession, type Session } from "./session";
 
 function isAdminSession(session: Session | null): session is Session {
   const adminEmail = (process.env.ADMIN_EMAIL ?? "").toLowerCase();
-  return !!session && !!adminEmail && session.email.toLowerCase() === adminEmail;
+  return !!session && session.emailVerified && !!adminEmail && session.email.toLowerCase() === adminEmail;
 }
 
 // For Server Components/pages — redirects unauthenticated/non-admin visitors to login.

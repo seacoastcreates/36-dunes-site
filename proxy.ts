@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { isSameOrigin } from "./app/lib/request-origin";
 
 // Deliberately Node-free: this only checks whether the session cookie is
 // present so we can redirect early. Real verification (signature, expiry,
@@ -15,6 +16,14 @@ const PUBLIC_PORTAL_PATHS = [
 ];
 
 export function proxy(request: NextRequest) {
+  if (request.nextUrl.pathname.startsWith("/api/")) {
+    if (!["GET", "HEAD", "OPTIONS"].includes(request.method)
+      && request.nextUrl.pathname !== "/api/stripe/webhook"
+      && !isSameOrigin(request)) {
+      return NextResponse.json({ error: "Invalid request origin." }, { status: 403 });
+    }
+    return NextResponse.next();
+  }
   const isPublicPath = PUBLIC_PORTAL_PATHS.includes(request.nextUrl.pathname);
   const hasSession = request.cookies.has("portal_session");
 
@@ -26,5 +35,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/portal/:path*", "/admin/:path*"],
+  matcher: ["/portal/:path*", "/admin/:path*", "/api/:path*"],
 };

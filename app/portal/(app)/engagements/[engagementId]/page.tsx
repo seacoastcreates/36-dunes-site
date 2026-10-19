@@ -1,108 +1,31 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { requireClient } from "../../../../lib/client-guard";
-import { adminDb } from "../../../../lib/firebase/admin";
+import { getPortalData } from "../../../../lib/portal/data";
+import { dashboardTotals, formatDate, formatMoney, statusLabel } from "../../../../lib/portal/format";
 import { retainerPlans } from "../../../../lib/stripe/retainerPlans";
+import InvoiceTable from "../../../components/InvoiceTable";
 
-export const metadata: Metadata = {
-  title: "Engagement — 36 Dunes",
-  robots: { index: false, follow: false },
-};
+export const metadata: Metadata = { title: "Project — 36 Dunes", robots: { index: false, follow: false } };
 
-function formatCents(cents: number) {
-  return (cents / 100).toLocaleString("en-US", { style: "currency", currency: "USD" });
-}
-
-type InvoiceRow = {
-  id: string;
-  description: string;
-  amountDue: number;
-  status: string;
-};
-
-export default async function PortalEngagementDetailPage({
-  params,
-}: {
-  params: Promise<{ engagementId: string }>;
-}) {
-  const { client } = await requireClient();
+export default async function PortalProjectDetailPage({ params }: { params: Promise<{ engagementId: string }> }) {
+  const { projects, invoices } = await getPortalData();
   const { engagementId } = await params;
-
-  const engagementDoc = await adminDb
-    .collection("clients")
-    .doc(client.id)
-    .collection("engagements")
-    .doc(engagementId)
-    .get();
-  if (!engagementDoc.exists) notFound();
-  const engagement = engagementDoc.data()!;
-
-  const invoicesSnap = await adminDb
-    .collection("clients")
-    .doc(client.id)
-    .collection("invoices")
-    .where("engagementId", "==", engagementId)
-    .orderBy("createdAt", "desc")
-    .get();
-  const invoices = invoicesSnap.docs.map((d) => ({ id: d.id, ...d.data() }) as InvoiceRow);
-
-  const plan =
-    engagement.type === "retainer"
-      ? retainerPlans.find((p) => p.priceId === engagement.stripePriceId)
-      : null;
-
-  return (
-    <>
-      <Link className="back-link" href="/portal">
-        ← Dashboard
-      </Link>
-
-      <div className="section-head">
-        <div>
-          <div className="eyebrow">{engagement.type === "retainer" ? "RETAINER" : "ONE-TIME"}</div>
-          <h1>{engagement.title}</h1>
-        </div>
-        <p>
-          <span className={`status-pill is-${engagement.status}`}>{engagement.status}</span>
-          {"  "}
-          {engagement.type === "one_time" && engagement.amountTotal
-            ? formatCents(engagement.amountTotal)
-            : plan?.label}
-        </p>
-      </div>
-
-      {engagement.summary && <p>{engagement.summary}</p>}
-
-      <div className="section-head">
-        <h2>Invoices</h2>
-      </div>
-      {invoices.length === 0 ? (
-        <p className="empty-state">No invoices yet for this engagement.</p>
-      ) : (
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Description</th>
-              <th>Amount</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {invoices.map((inv) => (
-              <tr key={inv.id}>
-                <td>
-                  <Link href={`/portal/invoices/${inv.id}`}>{inv.description}</Link>
-                </td>
-                <td>{formatCents(inv.amountDue)}</td>
-                <td>
-                  <span className={`status-pill is-${inv.status}`}>{inv.status}</span>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-    </>
-  );
+  const project = projects.find((project) => project.id === engagementId);
+  if (!project) notFound();
+  const relatedInvoices = invoices.filter((invoice) => invoice.engagementId === engagementId);
+  const totals = dashboardTotals([project], relatedInvoices);
+  const plan = retainerPlans.find((plan) => plan.priceId === project.stripePriceId);
+  return <>
+    <Link className="back-link" href="/portal/projects">← Projects</Link>
+    <div className="dashboard-heading project-heading"><div className="eyebrow">{project.type === "retainer" ? "RETAINER" : "PROJECT"}</div><h1>{project.title}</h1><div className="project-heading-meta"><span className={`status-pill is-${project.status}`}>{statusLabel(project.status)}</span><span>Updated {formatDate(project.updatedAt)}</span></div></div>
+    <section className="dashboard-card project-scope" aria-labelledby="project-scope"><h2 id="project-scope">Project scope &amp; update</h2><p>{project.summary || "Your project scope and updates will appear here as work gets underway."}</p></section>
+    <dl className="dashboard-stats">
+      <div><dt>{project.type === "retainer" ? "Retainer plan" : "Project total"}</dt><dd className={project.type === "retainer" ? "retainer-amount" : undefined}>{project.type === "retainer" ? plan?.label ?? "Retainer" : project.amountTotal !== null ? formatMoney(project.amountTotal) : "—"}</dd></div>
+      <div><dt>Outstanding invoices</dt><dd>{formatMoney(totals.outstanding)}</dd></div>
+      <div><dt>Paid to date</dt><dd>{formatMoney(totals.paid)}</dd></div>
+    </dl>
+    <section className="dashboard-section" aria-labelledby="project-invoices"><div className="section-head"><h2 id="project-invoices">Project invoices</h2><Link className="dashboard-text-link" href="/portal/billing">All billing →</Link></div><div className="dashboard-card"><InvoiceTable invoices={relatedInvoices} projects={projects} /></div></section>
+    <p className="dashboard-footnote">Questions about this project? <a href={`mailto:kirby@36dunes.com?subject=${encodeURIComponent(project.title)}`}>Contact 36 Dunes</a>.</p>
+  </>;
 }

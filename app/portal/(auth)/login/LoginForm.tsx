@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   signInWithEmailAndPassword,
@@ -11,20 +10,11 @@ import {
   type AuthCredential,
 } from "firebase/auth";
 import { auth, googleProvider } from "../../../lib/firebase/client";
+import { establishPortalSession, signInErrorMessage } from "../../../lib/auth-client";
 
 type Status = "idle" | "submitting" | "error";
 
-async function establishSession(idToken: string) {
-  const response = await fetch("/api/auth/session", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ idToken }),
-  });
-  if (!response.ok) throw new Error("Failed to establish session");
-}
-
 export default function LoginForm() {
-  const router = useRouter();
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
 
@@ -51,18 +41,16 @@ export default function LoginForm() {
         // the same account so both methods work from now on.
         const result = await signInWithEmailAndPassword(auth, email, password);
         await linkWithCredential(result.user, pendingGoogleCredential);
-        const idToken = await result.user.getIdToken();
-        await establishSession(idToken);
+        const idToken = await result.user.getIdToken(true);
+        window.location.replace(await establishPortalSession(idToken));
       } else {
         const result = await signInWithEmailAndPassword(auth, email, password);
         const idToken = await result.user.getIdToken();
-        await establishSession(idToken);
+        window.location.replace(await establishPortalSession(idToken));
       }
-      router.push("/portal");
-      router.refresh();
-    } catch {
+    } catch (error) {
       setStatus("error");
-      setError("Incorrect email or password.");
+      setError(signInErrorMessage(error));
     }
   };
 
@@ -73,15 +61,20 @@ export default function LoginForm() {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const idToken = await result.user.getIdToken();
-      await establishSession(idToken);
-      router.push("/portal");
-      router.refresh();
+      // A full navigation reads the newly set HttpOnly cookie on the server
+      // rather than reusing a prefetched, unauthenticated App Router response.
+      window.location.replace(await establishPortalSession(idToken));
     } catch (err: unknown) {
       const authError = err as { code?: string; customData?: { email?: string } };
       if (authError.code === "auth/account-exists-with-different-credential") {
         const credential = GoogleAuthProvider.credentialFromError(
           err as Parameters<typeof GoogleAuthProvider.credentialFromError>[0]
         );
+        if (!credential) {
+          setStatus("error");
+          setError("Couldn’t link your Google account. Sign in with your email and password, then try again.");
+          return;
+        }
         setPendingGoogleCredential(credential);
         setPendingEmail(authError.customData?.email ?? null);
         setStatus("idle");
@@ -90,7 +83,7 @@ export default function LoginForm() {
         );
       } else {
         setStatus("error");
-        setError("Google sign-in failed.");
+        setError(signInErrorMessage(err));
       }
     }
   };
@@ -98,6 +91,7 @@ export default function LoginForm() {
   return (
     <div className="auth-card">
       <h1>Sign in</h1>
+      <p className="auth-note">Use your invited email to open your personal projects and billing dashboard.</p>
 
       {pendingGoogleCredential ? (
         <p className="auth-note">
@@ -108,7 +102,7 @@ export default function LoginForm() {
       <form onSubmit={handlePasswordLogin} className="auth-form">
         <div className="field">
           <label htmlFor="email">Email</label>
-          <input id="email" name="email" type="email" required autoComplete="email" />
+          <input id="email" name="email" type="email" required autoComplete="email" defaultValue={pendingEmail ?? ""} key={pendingEmail ?? "email"} readOnly={!!pendingEmail} />
         </div>
         <div className="field">
           <label htmlFor="password">Password</label>
@@ -139,12 +133,12 @@ export default function LoginForm() {
             onClick={handleGoogleLogin}
             disabled={status === "submitting"}
           >
-            Continue with Google
+            {status === "submitting" ? "Signing in…" : "Continue with Google"}
           </button>
         </>
       )}
 
-      {error && <p className="form-error">{error}</p>}
+      {error && <p className="form-error" role="alert">{error}</p>}
     </div>
   );
 }

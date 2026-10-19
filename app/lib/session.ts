@@ -8,6 +8,7 @@ const SESSION_MAX_AGE_MS = 14 * 24 * 60 * 60 * 1000; // 14 days — Firebase's s
 export type Session = {
   uid: string;
   email: string;
+  emailVerified: boolean;
 };
 
 export async function createSessionCookie(idToken: string) {
@@ -19,7 +20,7 @@ export async function createSessionCookie(idToken: string) {
   cookieStore.set(SESSION_COOKIE, sessionCookie, {
     maxAge: SESSION_MAX_AGE_MS / 1000,
     httpOnly: true,
-    secure: true,
+    secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
   });
@@ -33,7 +34,7 @@ export async function verifySession(): Promise<Session | null> {
   try {
     const decoded = await adminAuth.verifySessionCookie(sessionCookie, true);
     if (!decoded.email) return null;
-    return { uid: decoded.uid, email: decoded.email };
+    return { uid: decoded.uid, email: decoded.email, emailVerified: !!decoded.email_verified };
   } catch {
     return null;
   }
