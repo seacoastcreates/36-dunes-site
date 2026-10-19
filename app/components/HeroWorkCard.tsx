@@ -48,33 +48,43 @@ const PROJECTS: HeroProject[] = [
   },
 ];
 
-const ROTATE_MS = 6000;
+const ROTATE_MS = 8000;
 
 export default function HeroWorkCard() {
   const [index, setIndex] = useState(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const autoRotateRef = useRef(true);
 
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
+  function startTimer() {
+    if (timerRef.current || !autoRotateRef.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     timerRef.current = setInterval(() => {
       setIndex((i) => (i + 1) % PROJECTS.length);
     }, ROTATE_MS);
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
+  }
+
+  function stopTimer() {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+  }
+
+  useEffect(() => {
+    startTimer();
+    return stopTimer;
   }, []);
 
   function pick(i: number) {
-    if (timerRef.current) clearInterval(timerRef.current);
+    autoRotateRef.current = false;
+    stopTimer();
     setIndex(i);
   }
 
   const project = PROJECTS[index];
 
   return (
-    <div className="hero-card">
+    <div className="hero-card" onMouseEnter={stopTimer} onMouseLeave={startTimer}>
       <div className="hero-card-head">
         <div className="eyebrow">
           Recent work · {String(index + 1).padStart(2, "0")} / {String(PROJECTS.length).padStart(2, "0")}
