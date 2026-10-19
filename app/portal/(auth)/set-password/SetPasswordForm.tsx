@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { updatePassword } from "firebase/auth";
 import { auth } from "../../../lib/firebase/client";
+import { establishPortalSession } from "../../../lib/auth-client";
 
 type Status = "idle" | "submitting" | "error";
 
@@ -33,8 +34,14 @@ export default function SetPasswordForm() {
     }
 
     try {
-      if (!auth.currentUser) throw new Error("Not signed in");
-      await updatePassword(auth.currentUser, password);
+      await auth.authStateReady();
+      const user = auth.currentUser;
+      if (!user) throw new Error("Not signed in");
+      await updatePassword(user, password);
+      // Firebase revokes existing sessions on a password change, including the
+      // portal cookie from the invite sign-in. Replace it with one minted from
+      // the post-change token before saving.
+      await establishPortalSession(await user.getIdToken(true));
       const response = await fetch("/api/portal/set-password", { method: "POST" });
       if (!response.ok) throw new Error("Failed to save");
       router.push("/portal");
