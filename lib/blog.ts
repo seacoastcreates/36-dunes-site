@@ -15,6 +15,18 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "building-swingsync",
+    title: "Building SwingSync: Comparing Two Golf Swings That Don't Run at the Same Speed",
+    excerpt:
+      "An iPhone app for studying two golf swings side by side — synced by phase, not by the clock, with a local pose-estimation backend that refuses to guess timing markers more often than it offers one.",
+    date: "2026-10-19",
+    dateDisplay: "October 19, 2026",
+    readTime: "8 min read",
+    tags: ["Build log", "Computer Vision"],
+    image: "/blog/building-swingsync/thumb.jpg",
+    imageAlt: "Two overlaid golf swing pose skeletons, one gold and one silver, tracing the same swing sequence from address to follow-through with glowing ball-flight arcs, on a black background",
+  },
+  {
     slug: "building-hearth-index",
     title: "Building Hearth Index: Forecasting Home Prices for Every ZIP Code, Not Just the Metro",
     excerpt:
