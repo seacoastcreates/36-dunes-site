@@ -3,6 +3,7 @@ import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 import ScrollReveal from "./components/ScrollReveal";
 import ContactForm from "./components/ContactForm";
+import HeroWorkCard from "./components/HeroWorkCard";
 
 export default function Home() {
   return (
@@ -12,26 +13,29 @@ export default function Home() {
       <main id="top">
         <section className="hero">
           <div className="wrap hero-grid">
-            <div className="eyebrow">AI / ML STUDIO — SOFTWARE ENGINEERING PARTNER</div>
-            <h1>
-              Intelligence at scale. <em>Strategy</em> in code.
-            </h1>
-            <p className="lede">
-              36&nbsp;Dunes is a machine learning and AI solutions studio that helps
-              forward-thinking businesses unlock the power of their data — custom
-              models, predictive analytics, and automation pipelines that turn
-              information into strategic advantage. When the job calls for it, we
-              build the software underneath it too: full-stack web apps, iOS, and
-              the cloud infrastructure that keeps it all running.
-            </p>
-            <div className="hero-actions">
-              <a className="btn btn-primary" href="#contact">
-                Start a project
-              </a>
-              <a className="btn btn-ghost" href="#work">
-                See the work →
-              </a>
+            <div>
+              <div className="eyebrow">AI / ML STUDIO — SOFTWARE ENGINEERING PARTNER</div>
+              <h1>
+                Intelligence at scale. <em>Strategy</em> in code.
+              </h1>
+              <p className="lede">
+                36&nbsp;Dunes is a machine learning and AI solutions studio that helps
+                forward-thinking businesses unlock the power of their data — custom
+                models, predictive analytics, and automation pipelines that turn
+                information into strategic advantage. When the job calls for it, we
+                build the software underneath it too: full-stack web apps, iOS, and
+                the cloud infrastructure that keeps it all running.
+              </p>
+              <div className="hero-actions">
+                <a className="btn btn-primary" href="#contact">
+                  Start a project
+                </a>
+                <a className="btn btn-ghost" href="#work">
+                  See the work →
+                </a>
+              </div>
             </div>
+            <HeroWorkCard />
           </div>
           <div className="hero-scene" aria-hidden="true">
             <svg
@@ -142,19 +146,6 @@ export default function Home() {
 
         <section className="plain" id="work">
           <div className="wrap">
-            <video
-              className="work-video"
-              src="/work/prospect-radar.mp4"
-              poster="/work/prospect-radar-poster.jpg"
-              controls
-              playsInline
-              preload="metadata"
-              width={1280}
-              height={720}
-            >
-              Your browser doesn&apos;t support embedded video. You can{" "}
-              <a href="/work/prospect-radar.mp4">download the video</a> instead.
-            </video>
             <div className="section-head">
               <div>
                 <div className="eyebrow">FIELD NOTES</div>
@@ -165,6 +156,65 @@ export default function Home() {
                 another engineer — not dressed up for a pitch.
               </p>
             </div>
+            <div className="case-card reveal" data-anim="">
+              <div>
+                <div className="eyebrow">CASE STUDY — HOUSING MARKET FORECASTING</div>
+                <h3>Groundwork: a housing forecast is only useful if you can check its track record.</h3>
+                <p className="narrative">
+                  A national housing headline tells you little about the ZIP
+                  code you&apos;re actually looking at. We built Groundwork to
+                  connect the two: one LightGBM model forecasts each metro&apos;s
+                  direction, while another estimates how individual ZIPs will
+                  perform relative to their market. Zillow home values, Redfin
+                  market activity, and mortgage rates feed a searchable map
+                  and comparison tool. Every 12-month forecast comes with an
+                  uncertainty range, and walk-forward backtests show how the
+                  models performed against nine years of real outcomes —
+                  including the years they got wrong.
+                </p>
+                <a
+                  className="back-link case-read-more"
+                  href="https://groundwork.36dunes.com/model"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Explore the model and backtests →
+                </a>
+              </div>
+              <div className="case-side">
+                <dl className="spec-list">
+                  <div className="spec-row">
+                    <dt>Coverage</dt>
+                    <dd>894 metros · 26,268 ZIP codes</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Model</dt>
+                    <dd>LightGBM · metro trend + ZIP-relative change</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Forecast</dt>
+                    <dd>12 months ahead, with 80% ranges</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Validation</dt>
+                    <dd>Walk-forward backtests · 2017–2025</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Stack</dt>
+                    <dd>Next.js · FastAPI · PostgreSQL</dd>
+                  </div>
+                </dl>
+                <a
+                  className="btn btn-ghost case-cta"
+                  href="https://groundwork.36dunes.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Explore Groundwork →
+                </a>
+              </div>
+            </div>
+
             <div className="case-card reveal" data-anim="">
               <div>
                 <div className="eyebrow">CASE STUDY — SALES PROSPECTING</div>

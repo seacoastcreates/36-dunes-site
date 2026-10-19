@@ -242,6 +242,10 @@ nav.primary a:hover, nav.primary a:focus-visible { color: var(--text); }
   display: grid;
   grid-template-columns: minmax(0,1fr);
   gap: 28px;
+  align-items: center;
+}
+@media (min-width: 981px) {
+  .hero-grid { grid-template-columns: minmax(0,1fr) 400px; gap: 48px; }
 }
 .hero h1 {
   font-size: clamp(2.3rem, 5.4vw, 3.85rem);
@@ -263,19 +267,49 @@ nav.primary a:hover, nav.primary a:focus-visible { color: var(--text); }
 }
 .hero-scene { margin-top: 56px; }
 
+.hero-card {
+  background: var(--band-bg);
+  color: var(--band-text);
+  border-radius: 18px;
+  padding: 28px 28px 20px;
+  box-shadow: 0 24px 48px -28px rgba(19,21,28,0.55);
+}
+.hero-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.hero-card .eyebrow { color: var(--band-dim); }
+.hero-card .eyebrow::before { background: var(--band-accent); }
+.hero-card-dots { display: flex; align-items: center; gap: 6px; }
+.hero-card-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: rgba(237,234,225,0.35);
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.hero-card-dots button.is-active { width: 22px; background: var(--band-accent); }
+.hero-card-body { margin-top: 10px; }
+.hero-card-body h3 { font-size: 1.32rem; line-height: 1.25; margin-top: 0; }
+.hero-card-body .spec-list { margin-top: 18px; }
+.hero-card-link { margin-top: 14px; }
+.hero-card .back-link { color: var(--band-dim); }
+.hero-card .back-link:hover, .hero-card .back-link:focus-visible { color: var(--band-accent); }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-card-body { animation: hero-card-fade 0.45s ease; }
+}
+@keyframes hero-card-fade {
+  from { opacity: 0; transform: translateY(6px); }
+}
+
 /* ---------- sections ---------- */
 section.plain { padding-block: 84px; }
 .band { background: var(--band-bg); color: var(--band-text); }
-.work-video {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  border-radius: 16px;
-  border: 1px solid var(--line);
-  margin-bottom: 44px;
-  background: var(--band-bg);
-  display: block;
-}
 .section-head {
   display: flex;
   justify-content: space-between;
