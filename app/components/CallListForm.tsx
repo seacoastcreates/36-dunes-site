@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { trackLead } from "../lib/analytics";
 
 function encode(data: Record<string, string>) {
   return Object.keys(data)
@@ -31,6 +32,7 @@ export default function CallListForm() {
         body: encode(data),
       });
       if (!response.ok) throw new Error("Submission failed");
+      trackLead("call-list-interest");
       setStatus("success");
       form.reset();
     } catch {

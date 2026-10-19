@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useSyncExternalStore, type FormEvent } from "react";
+import { trackLead } from "../lib/analytics";
 
 const UNLOCK_KEY = "36dunes-checklist-unlocked";
 
@@ -52,6 +53,7 @@ export default function LeadMagnetForm({ children }: { children: React.ReactNode
         body: encode(data),
       });
       if (!response.ok) throw new Error("Submission failed");
+      trackLead("ai-readiness-checklist");
       try {
         localStorage.setItem(UNLOCK_KEY, "true");
       } catch {
