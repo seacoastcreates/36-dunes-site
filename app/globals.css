@@ -270,6 +270,7 @@ nav.primary a:hover, nav.primary a:focus-visible { color: var(--text); }
 .hero-card {
   background: var(--band-bg);
   color: var(--band-text);
+  border: 1px solid rgba(224,178,94,0.32);
   border-radius: 18px;
   padding: 28px 28px 20px;
   box-shadow: 0 24px 48px -28px rgba(19,21,28,0.55);
