@@ -15,6 +15,18 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "where-ai-pays-off",
+    title: "Where Small Businesses Should (and Shouldn't) Use AI",
+    excerpt:
+      "AI pays off where you have a pile of messy text or a decision repeated hundreds of times — and it wastes money everywhere else. A three-question test, with real examples from a dealer-network build.",
+    date: "2026-10-24",
+    dateDisplay: "October 24, 2026",
+    readTime: "6 min read",
+    tags: ["Decision guide", "AI strategy"],
+    image: "/blog/where-ai-pays-off/thumb.jpg",
+    imageAlt: "A gold-line funnel filtering abstract document shapes through to one side, while a wrench and a handshake bounce off the rim and fall away on the other side, on a dark navy background",
+  },
+  {
     slug: "building-swingsync",
     title: "Building SwingSync: Comparing Two Golf Swings That Don't Run at the Same Speed",
     excerpt:
