@@ -275,38 +275,17 @@ nav.primary a:hover, nav.primary a:focus-visible { color: var(--text); }
   padding: 28px 28px 20px;
   box-shadow: 0 24px 48px -28px rgba(19,21,28,0.55);
 }
-.hero-card-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
 .hero-card .eyebrow { color: var(--band-dim); }
 .hero-card .eyebrow::before { background: var(--band-accent); }
-.hero-card-dots { display: flex; align-items: center; gap: 6px; }
-.hero-card-dots button {
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border: none;
-  border-radius: 4px;
-  background: rgba(237,234,225,0.35);
-  cursor: pointer;
-  transition: width 0.3s ease, background 0.3s ease;
-}
-.hero-card-dots button.is-active { width: 22px; background: var(--band-accent); }
-.hero-card-body { margin-top: 10px; }
-.hero-card-body h3 { font-size: 1.32rem; line-height: 1.25; margin-top: 0; }
-.hero-card-body .spec-list { margin-top: 18px; }
-.hero-card-link { margin-top: 14px; }
-.hero-card .back-link { color: var(--band-dim); }
-.hero-card .back-link:hover, .hero-card .back-link:focus-visible { color: var(--band-accent); }
-@media (prefers-reduced-motion: no-preference) {
-  .hero-card-body { animation: hero-card-fade 0.45s ease; }
-}
-@keyframes hero-card-fade {
-  from { opacity: 0; transform: translateY(6px); }
-}
+.hero-card h3 { font-size: 1.32rem; line-height: 1.25; margin: 10px 0 20px; }
+.hero-form .field { margin-bottom: 14px; }
+.hero-form .btn { width: 100%; justify-content: center; margin-top: 4px; }
+/* the card is always dark, so pin the button to the band palette in light mode too */
+.hero-form .btn-primary { background: var(--band-accent); color: #1B1509; }
+.hero-form .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.hero-form-note { margin: 12px 0 0; font-size: 0.82rem; color: var(--band-dim); text-align: center; }
+.hero-form-success { padding-bottom: 8px; }
+.hero-form-success p { color: var(--band-dim); margin: 0; }
 
 /* ---------- sections ---------- */
 section.plain { padding-block: 84px; }

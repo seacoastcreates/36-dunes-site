@@ -4,7 +4,7 @@ import SiteFooter from "./components/SiteFooter";
 import ScrollReveal from "./components/ScrollReveal";
 import ContactForm from "./components/ContactForm";
 import ContactBubbles from "./components/ContactBubbles";
-import HeroWorkCard from "./components/HeroWorkCard";
+import HeroContactForm from "./components/HeroContactForm";
 
 export default function Home() {
   return (
@@ -36,7 +36,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <HeroWorkCard />
+            <HeroContactForm />
           </div>
           <div className="hero-scene" aria-hidden="true">
             <svg
