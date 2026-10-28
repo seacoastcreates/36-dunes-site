@@ -15,6 +15,18 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "building-rulebook-trader",
+    title: "Building Rulebook Trader: Where the Rules Decide and AI Just Reviews",
+    excerpt:
+      "A paper-trading side project built for fun, for testing strategies, and for trying tools. Deterministic rules make every call, a cheap AI reviewer can only veto, and every decision gets logged. The pattern travels well beyond trading.",
+    date: "2026-10-28",
+    dateDisplay: "October 28, 2026",
+    readTime: "7 min read",
+    tags: ["Build log", "AI strategy"],
+    image: "/blog/building-rulebook-trader/thumb.jpg",
+    imageAlt: "An open gold-line rulebook sending a stream of candlestick shapes through a gold archway checkpoint with a glowing lens, where one candlestick is stopped with an X, on a deep green background",
+  },
+  {
     slug: "where-ai-pays-off",
     title: "Where Small Businesses Should (and Shouldn't) Use AI",
     excerpt:
