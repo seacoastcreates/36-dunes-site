@@ -255,11 +255,11 @@ export default function BuildingRulebookTraderPost() {
             <p>
               The live dashboard is public and read-only at{" "}
               <a
-                href="https://alpaca-agent-trader.vercel.app"
+                href="https://rulebook-trader.36dunes.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                alpaca-agent-trader.vercel.app
+                rulebook-trader.36dunes.com
               </a>
               . None of it is investment advice. It&apos;s a workbench.
             </p>
