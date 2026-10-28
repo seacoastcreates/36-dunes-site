@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import ServiceArt from "../../components/ServiceArt";
 
 export const metadata: Metadata = {
   title: "Machine Learning Consulting — 36 Dunes",
@@ -35,14 +36,19 @@ export default function MachineLearningConsultingPage() {
             <Link className="back-link" href="/services">
               ← All services
             </Link>
-            <div className="eyebrow">MACHINE LEARNING CONSULTING</div>
-            <h1>An honest read on where ML fits, before you spend on it.</h1>
-            <p className="lede">
-              Most machine learning consulting companies show up already
-              selling a model. We show up to answer one question first: does
-              this problem actually need one — and if so, what&apos;s the
-              smallest version that proves it?
-            </p>
+            <div className="post-intro-grid">
+              <div>
+                <div className="eyebrow">MACHINE LEARNING CONSULTING</div>
+                <h1>An honest read on where ML fits, before you spend on it.</h1>
+                <p className="lede">
+                  Most machine learning consulting companies show up already
+                  selling a model. We show up to answer one question first: does
+                  this problem actually need one — and if so, what&apos;s the
+                  smallest version that proves it?
+                </p>
+              </div>
+              <ServiceArt kind="machine-learning-consulting" />
+            </div>
           </div>
         </section>
 

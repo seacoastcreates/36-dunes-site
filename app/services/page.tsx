@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import ServiceArt, { type ServiceArtKind } from "../components/ServiceArt";
 import { services } from "../../lib/services";
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default function ServicesPage() {
                   className="service-card"
                   href={`/services/${service.slug}`}
                 >
+                  <ServiceArt kind={service.slug as ServiceArtKind} crop />
                   <div className="eyebrow">{service.eyebrow}</div>
                   <h3>{service.name}</h3>
                   <p>{service.shortDescription}</p>

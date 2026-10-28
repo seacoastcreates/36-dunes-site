@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import ServiceArt from "../../components/ServiceArt";
 
 export const metadata: Metadata = {
   title: "AI Automation for Businesses — 36 Dunes",
@@ -35,14 +36,19 @@ export default function AiAutomationPage() {
             <Link className="back-link" href="/services">
               ← All services
             </Link>
-            <div className="eyebrow">AI AUTOMATION FOR BUSINESSES</div>
-            <h1>Turn what&apos;s manual into something that runs itself.</h1>
-            <p className="lede">
-              &quot;We need a chatbot&quot; tells us less than &quot;support
-              tickets take 3 days to triage.&quot; Automation starts with the
-              second sentence — the workflow that&apos;s actually slow, not
-              the tool everyone assumes fixes it.
-            </p>
+            <div className="post-intro-grid">
+              <div>
+                <div className="eyebrow">AI AUTOMATION FOR BUSINESSES</div>
+                <h1>Turn what&apos;s manual into something that runs itself.</h1>
+                <p className="lede">
+                  &quot;We need a chatbot&quot; tells us less than &quot;support
+                  tickets take 3 days to triage.&quot; Automation starts with the
+                  second sentence — the workflow that&apos;s actually slow, not
+                  the tool everyone assumes fixes it.
+                </p>
+              </div>
+              <ServiceArt kind="ai-automation" />
+            </div>
           </div>
         </section>
 

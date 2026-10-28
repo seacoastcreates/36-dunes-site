@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import FlowDiagram from "../../components/FlowDiagram";
 
 export const metadata: Metadata = {
   title: "Building Rulebook Trader: Where the Rules Decide and AI Just Reviews — 36 Dunes",
@@ -140,6 +141,18 @@ export default function BuildingRulebookTraderPost() {
               short daily journal from the day&apos;s signals, fills, and
               scoreboard.
             </p>
+
+            <FlowDiagram
+              label="Rulebook Trader entry pipeline"
+              caption="Every new entry runs the same gauntlet. The AI sits in the middle with veto power only."
+              steps={[
+                { label: "Signal", detail: "A strategy’s rule fires" },
+                { label: "Risk limits", detail: "Caps on positions, sectors, entries, daily loss" },
+                { label: "Claude review", detail: "Approve, or veto with a reason. An error skips the trade" },
+                { label: "Order", detail: "Paper account, stop and target attached" },
+                { label: "Log", detail: "Every outcome, including blocks and vetoes" },
+              ]}
+            />
 
             <h2>The stack, and why each piece</h2>
             <ul>

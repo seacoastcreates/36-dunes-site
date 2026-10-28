@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import FlowDiagram from "../../components/FlowDiagram";
 
 export const metadata: Metadata = {
   title: "Building SwingSync: Comparing Two Golf Swings — 36 Dunes",
@@ -167,6 +168,18 @@ export default function BuildingSwingSyncPost() {
               timing never silently overwrites markers you&apos;ve already
               set by hand.
             </p>
+
+            <FlowDiagram
+              label="SwingSync analysis pipeline"
+              caption="From raw video to two swings scrubbing in step. Nothing in the chain claims to know golf."
+              steps={[
+                { label: "Clip", detail: "Up to 96 frames, about 12 fps" },
+                { label: "Find the golfer", detail: "YOLOS tiny, every sixth frame" },
+                { label: "17 joints", detail: "ViTPose base on each sampled frame" },
+                { label: "Timing heuristic", detail: "Suggests markers, or says why it won’t" },
+                { label: "Phase sync", detail: "Six markers line up both clips" },
+              ]}
+            />
 
             <h2>What ships, what&apos;s still manual</h2>
             <p>

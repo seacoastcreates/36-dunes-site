@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import FlowDiagram from "../../components/FlowDiagram";
 
 export const metadata: Metadata = {
   title: "Building MoodLens: a Private AI Mood Journal — 36 Dunes",
@@ -184,6 +185,17 @@ export default function BuildingMoodLensPost() {
               cycle&quot; into something gentler, because an app shouldn&apos;t
               sound like it&apos;s handing out diagnoses.
             </p>
+
+            <FlowDiagram
+              label="MoodLens entry flow"
+              caption="The privacy rules came first. The pipeline was drawn around them."
+              steps={[
+                { label: "Entry", detail: "Typed or spoken, no account needed" },
+                { label: "My server", detail: "Tied to a signed anonymous ID, sent nowhere else" },
+                { label: "Emotion models", detail: "GoEmotions for text, a speech model for tone" },
+                { label: "Reading saved", detail: "Voice clips are analyzed in memory, then discarded" },
+              ]}
+            />
 
             <h2>Running real AI for almost nothing</h2>
             <p>

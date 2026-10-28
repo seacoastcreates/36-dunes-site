@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import FlowDiagram from "../../components/FlowDiagram";
 
 export const metadata: Metadata = {
   title: "Building Alpaca Explorer: AI Market Research Chat — 36 Dunes",
@@ -153,6 +154,18 @@ export default function BuildingAlpacaExplorerPost() {
               symbol, which is the difference between a three-second answer
               and a twenty-second one.
             </p>
+
+            <FlowDiagram
+              label="Alpaca Explorer request flow"
+              caption="The answer and the work behind it stream to the browser together."
+              steps={[
+                { label: "Question", detail: "Typed into the chat UI" },
+                { label: "POST /api/ask", detail: "Opens a Server-Sent Events stream" },
+                { label: "Tool loop", detail: "Claude with eight read-only Alpaca tools, 15 rounds max" },
+                { label: "Live steps", detail: "Each tool call streams with its timing" },
+                { label: "Answer", detail: "Text, with charts drawn inline" },
+              ]}
+            />
 
             <h2>Defining &quot;unusual&quot;: the options-flow heuristic</h2>
             <p>

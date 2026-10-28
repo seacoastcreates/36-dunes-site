@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import FlowDiagram from "../../components/FlowDiagram";
 
 export const metadata: Metadata = {
   title: "PhotoNester Case Study — On-Device ML App Development | 36 Dunes",
@@ -37,19 +39,32 @@ export default function PhotoNesterCaseStudy() {
             <Link className="back-link" href="/">
               ← Back to home
             </Link>
-            <div className="eyebrow">CASE STUDY — ON-DEVICE ML APP DEVELOPMENT</div>
-            <h1>PhotoNester: sorting a million photos without a single upload.</h1>
-            <p className="lede">
-              A camera roll with years of unsorted photos is a search
-              problem, not a storage problem. Here&apos;s how we built
-              PhotoNester to solve it entirely on-device — detailed enough
-              to hand to another engineer, not dressed up for a pitch.
-            </p>
-            <div className="article-meta">
-              <span>iOS · Swift + SwiftUI</span>
-              <span>OpenAI CLIP → Core ML</span>
-              <span>Unsupervised k-means</span>
-              <span>100% on-device</span>
+            <div className="post-intro-grid">
+              <div>
+                <div className="eyebrow">CASE STUDY — ON-DEVICE ML APP DEVELOPMENT</div>
+                <h1>PhotoNester: sorting a million photos without a single upload.</h1>
+                <p className="lede">
+                  A camera roll with years of unsorted photos is a search
+                  problem, not a storage problem. Here&apos;s how we built
+                  PhotoNester to solve it entirely on-device — detailed enough
+                  to hand to another engineer, not dressed up for a pitch.
+                </p>
+                <div className="article-meta">
+                  <span>iOS · Swift + SwiftUI</span>
+                  <span>OpenAI CLIP → Core ML</span>
+                  <span>Unsupervised k-means</span>
+                  <span>100% on-device</span>
+                </div>
+              </div>
+              <Image
+                className="post-title-image"
+                src="/blog/building-photonester/thumb.jpg"
+                alt="Gold photo-frame icons clustering into a smartphone outline on a dark navy background"
+                width={720}
+                height={540}
+                priority
+                sizes="(max-width: 780px) 100vw, 50vw"
+              />
             </div>
           </div>
         </section>
@@ -108,6 +123,17 @@ export default function PhotoNesterCaseStudy() {
               if the embeddings were somehow extracted, they&apos;re not
               photos, they&apos;re coordinates in a 512-dimensional space.
             </p>
+            <FlowDiagram
+              label="PhotoNester pipeline"
+              caption="Every step runs on the phone. Only the albums come out the other end."
+              steps={[
+                { label: "Photo library", detail: "Read on the device, never uploaded" },
+                { label: "CLIP on Core ML", detail: "Converted from PyTorch with coremltools" },
+                { label: "Embedding", detail: "512 numbers per photo, not the photo" },
+                { label: "k-means", detail: "Groups come from this library, not fixed labels" },
+                { label: "Albums", detail: "Written back to Photos" },
+              ]}
+            />
 
             <h2>Clustering without labels</h2>
             <p>
@@ -203,6 +229,19 @@ export default function PhotoNesterCaseStudy() {
               the job, and the rest is making it actually survive contact
               with someone&apos;s phone.
             </p>
+            <figure>
+              <Image
+                src="/work/photonester/screens.jpg"
+                alt="Two PhotoNester iPhone screens: a library mid-scan at 9,180 of 9,299 photos, and the finished run offering to open the new albums in Photos"
+                width={1600}
+                height={900}
+                sizes="(max-width: 780px) 100vw, 720px"
+              />
+              <figcaption>
+                The shipping app: a 9,299-photo library mid-scan, then the
+                finished albums handed to Photos.
+              </figcaption>
+            </figure>
 
             <blockquote>
               The model is maybe a third of the job. The rest is making it

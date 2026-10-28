@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import FlowDiagram from "../../components/FlowDiagram";
 
 export const metadata: Metadata = {
   title: "Building PhotoNester: On-Device Photo Sorting — 36 Dunes",
@@ -139,6 +140,18 @@ export default function BuildingPhotoNesterPost() {
               mattered: making the ML pipeline fast and stable on real
               hardware, not a simulator.
             </p>
+
+            <FlowDiagram
+              label="PhotoNester pipeline"
+              caption="Everything between the camera roll and the albums happens on the phone."
+              steps={[
+                { label: "Photo library", detail: "Read on the device, never uploaded" },
+                { label: "CLIP on Core ML", detail: "Converted from PyTorch with coremltools" },
+                { label: "Embedding", detail: "A numerical fingerprint per photo" },
+                { label: "k-means", detail: "Similar photos cluster together" },
+                { label: "Albums", detail: "Pets, Food, Travel, already sorted" },
+              ]}
+            />
 
             <h2>The unglamorous part: making it not crash or drain your battery</h2>
             <p>

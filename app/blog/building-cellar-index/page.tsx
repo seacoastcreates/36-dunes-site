@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import FlowDiagram from "../../components/FlowDiagram";
 
 export const metadata: Metadata = {
   title: "Building Cellar Index: Forecasting Wine Prices — 36 Dunes",
@@ -233,6 +234,18 @@ export default function BuildingCellarIndexPost() {
               it stays cheap. The whole thing — compute, storage, and
               quarterly retraining — runs for about $17 a month.
             </p>
+
+            <FlowDiagram
+              label="Cellar Index training and serving pipeline"
+              caption="Training and serving call the same code, so they can’t drift apart."
+              steps={[
+                { label: "PLCB price lists", detail: "40 quarterly PDFs, 508,000 rows" },
+                { label: "One feature pipeline", detail: "Shared by training and the API" },
+                { label: "Retraining", detail: "SageMaker Processing, every quarter" },
+                { label: "Model registry", detail: "Versioned on S3, one version active" },
+                { label: "FastAPI", detail: "Hot-swaps within 60 seconds, about 110ms a forecast" },
+              ]}
+            />
 
             <h2>Model tuning still to come</h2>
             <p>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
@@ -159,6 +160,14 @@ export default function Home() {
             </div>
             <div className="case-card reveal" data-anim="">
               <div>
+                <Image
+                  className="case-media"
+                  src="/work/groundwork/card.jpg"
+                  alt="Groundwork's national map, one dot per metro sized by market and colored green or red by its 12-month forecast"
+                  width={1600}
+                  height={900}
+                  sizes="(max-width: 820px) 100vw, 560px"
+                />
                 <div className="eyebrow">CASE STUDY — HOUSING MARKET FORECASTING</div>
                 <h3>Groundwork: a housing forecast is only useful if you can check its track record.</h3>
                 <p className="narrative">
@@ -218,6 +227,14 @@ export default function Home() {
 
             <div className="case-card reveal" data-anim="">
               <div>
+                <Image
+                  className="case-media"
+                  src="/work/call-list/card.jpg"
+                  alt="An illustrative Call List lead card with a fit score, tier badge, and call brief, contact details blurred, under summary counts for the full list"
+                  width={1100}
+                  height={619}
+                  sizes="(max-width: 820px) 100vw, 560px"
+                />
                 <div className="eyebrow">CASE STUDY — SALES PROSPECTING</div>
                 <h3>Call List: when a pipeline dries up, the problem is usually the list.</h3>
                 <p className="narrative">
@@ -265,6 +282,14 @@ export default function Home() {
 
             <div className="case-card reveal" data-anim="">
               <div>
+                <Image
+                  className="case-media"
+                  src="/work/photonester/screens.jpg"
+                  alt="Two PhotoNester iPhone screens: a library mid-scan at 9,180 of 9,299 photos, and the finished run offering to open the new albums in Photos"
+                  width={1600}
+                  height={900}
+                  sizes="(max-width: 820px) 100vw, 560px"
+                />
                 <div className="eyebrow">CASE STUDY — CONSUMER iOS</div>
                 <h3>PhotoNester: sorting a million photos without a single upload.</h3>
                 <p className="narrative">
@@ -330,6 +355,17 @@ export default function Home() {
             </div>
             <div className="approach-list">
               <div className="approach-step">
+                <svg
+                  className="step-icon"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <circle cx="13" cy="13" r="8" stroke="var(--accent)" strokeWidth="1.8" />
+                  <path d="M19 19l7 7" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" />
+                </svg>
                 <div className="step-index">01 — DISCOVER</div>
                 <h3>Scope the real problem</h3>
                 <p>
@@ -339,6 +375,18 @@ export default function Home() {
                 </p>
               </div>
               <div className="approach-step">
+                <svg
+                  className="step-icon"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M15 4 26 9.5 15 15 4 9.5Z" stroke="var(--accent)" strokeWidth="1.8" strokeLinejoin="round" />
+                  <path d="M4 15l11 5.5L26 15" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M4 20.5 15 26l11-5.5" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
                 <div className="step-index">02 — BUILD</div>
                 <h3>Ship in working slices</h3>
                 <p>
@@ -348,6 +396,17 @@ export default function Home() {
                 </p>
               </div>
               <div className="approach-step">
+                <svg
+                  className="step-icon"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M8 3h10l5 5v17a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="var(--accent)" strokeWidth="1.8" strokeLinejoin="round" />
+                  <path d="M10.5 17l3 3 6-6.5" stroke="var(--accent)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
                 <div className="step-index">03 — HANDOFF</div>
                 <h3>Leave it maintainable</h3>
                 <p>
@@ -364,6 +423,14 @@ export default function Home() {
             <div>
               <div className="eyebrow">FOUNDER-LED</div>
               <h2>One senior engineer, not a bench of juniors.</h2>
+              <Image
+                className="about-photo"
+                src="/about/kirby-robinson.jpg"
+                alt="Kirby Robinson, founder of 36 Dunes"
+                width={640}
+                height={640}
+                sizes="260px"
+              />
             </div>
             <div className="about-copy">
               <p>

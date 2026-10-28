@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import FlowDiagram from "../../components/FlowDiagram";
 
 export const metadata: Metadata = {
   title: "Building Hearth Index: ZIP-Level Price Forecasts — 36 Dunes",
@@ -122,6 +123,16 @@ export default function BuildingHearthIndexPost() {
               booster (2013 onward) plus a core booster for the nation and
               any metro Redfin doesn&apos;t cover.
             </p>
+
+            <FlowDiagram
+              label="Hearth Index forecast structure"
+              caption="Splitting the forecast in two fixed most of the 2023 miss."
+              steps={[
+                { label: "Trend model", detail: "The metro’s (and nation’s) own 12-month change" },
+                { label: "Relative model", detail: "The ZIP’s change minus its metro’s", joiner: "+" },
+                { label: "ZIP forecast", detail: "Parent trend plus relative forecast", joiner: "=" },
+              ]}
+            />
 
             <h2>The data, and the gotcha that cost the first few hours</h2>
             <p>

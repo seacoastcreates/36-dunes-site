@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import ServiceArt from "../../components/ServiceArt";
 
 export const metadata: Metadata = {
   title: "Custom AI Development — 36 Dunes",
@@ -35,14 +36,19 @@ export default function CustomAiDevelopmentPage() {
             <Link className="back-link" href="/services">
               ← All services
             </Link>
-            <div className="eyebrow">CUSTOM AI DEVELOPMENT</div>
-            <h1>A model built around your data, not the other way around.</h1>
-            <p className="lede">
-              A generic API call is the right answer for most AI features.
-              Custom development is for the rest: when your data, your
-              constraints, or your accuracy bar don&apos;t fit what an
-              off-the-shelf model was trained for.
-            </p>
+            <div className="post-intro-grid">
+              <div>
+                <div className="eyebrow">CUSTOM AI DEVELOPMENT</div>
+                <h1>A model built around your data, not the other way around.</h1>
+                <p className="lede">
+                  A generic API call is the right answer for most AI features.
+                  Custom development is for the rest: when your data, your
+                  constraints, or your accuracy bar don&apos;t fit what an
+                  off-the-shelf model was trained for.
+                </p>
+              </div>
+              <ServiceArt kind="custom-ai-development" />
+            </div>
           </div>
         </section>
 
