@@ -423,14 +423,6 @@ export default function Home() {
             <div>
               <div className="eyebrow">FOUNDER-LED</div>
               <h2>One senior engineer, not a bench of juniors.</h2>
-              <Image
-                className="about-photo"
-                src="/about/kirby-robinson.jpg"
-                alt="Kirby Robinson, founder of 36 Dunes"
-                width={640}
-                height={640}
-                sizes="260px"
-              />
             </div>
             <div className="about-copy">
               <p>
