@@ -15,6 +15,18 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "scoped-ai-mvp",
+    title: "Why Most “Add AI” Pitches Fail (and What a Good Scoped MVP Looks Like)",
+    excerpt:
+      "“You need to add AI” is a pitch, not a plan. Five reasons those pitches fail, what a well-scoped first build looks like instead, and a five-question test to run before spending anything.",
+    date: "2026-11-02",
+    dateDisplay: "November 2, 2026",
+    readTime: "5 min read",
+    tags: ["Decision guide", "AI strategy"],
+    image: "/blog/scoped-ai-mvp/thumb.jpg",
+    imageAlt: "A sprawling, faint dashed network on the left narrowing through a gold arrow into a single clipboard holding a short ranked list with check marks, on a deep plum background",
+  },
+  {
     slug: "building-rulebook-trader",
     title: "Building Rulebook Trader: Where the Rules Decide and AI Just Reviews",
     excerpt:
