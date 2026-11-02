@@ -36,15 +36,19 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-const siteTitle = "36 Dunes — AI/ML & Software Engineering Studio";
+const siteTitle = "36 Dunes — Researched Sales Prospect Lists & Custom AI | York, Maine";
 const siteDescription =
-  "36 Dunes is a machine learning and AI solutions studio that helps forward-thinking businesses unlock the power of their data — custom models, predictive analytics, and automation pipelines that turn information into strategic advantage.";
+  "Ranked, researched lists of the businesses in your territory worth calling, each with a direct contact and a reason to call. First 10 leads free. Plus custom AI and software from a York, Maine engineer.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://36dunes.com"),
   title: siteTitle,
   description: siteDescription,
   keywords: [
+    "sales prospect lists",
+    "B2B lead generation New England",
+    "sales leads New Hampshire Maine",
+    "AI consulting Maine",
     "AI consulting",
     "machine learning studio",
     "custom AI models",
@@ -93,14 +97,23 @@ const jsonLd = {
   description: siteDescription,
   url: "https://36dunes.com",
   email: "kirby@36dunes.com",
+  telephone: "+1-857-209-4404",
+  founder: { "@type": "Person", name: "Kirby Robinson" },
   address: {
     "@type": "PostalAddress",
     addressLocality: "York",
     addressRegion: "ME",
     addressCountry: "US",
   },
-  areaServed: "US",
+  areaServed: [
+    { "@type": "State", name: "Maine" },
+    { "@type": "State", name: "New Hampshire" },
+    { "@type": "State", name: "Massachusetts" },
+    { "@type": "Country", name: "United States" },
+  ],
   knowsAbout: [
+    "Sales Prospecting",
+    "B2B Lead Generation",
     "Machine Learning",
     "Artificial Intelligence",
     "Data Strategy Consulting",

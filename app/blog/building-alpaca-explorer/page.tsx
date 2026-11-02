@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import PostLeadOffers from "../../components/PostLeadOffers";
 import FlowDiagram from "../../components/FlowDiagram";
 
 export const metadata: Metadata = {
@@ -294,6 +295,8 @@ export default function BuildingAlpacaExplorerPost() {
             </blockquote>
           </div>
         </section>
+
+        <PostLeadOffers />
 
         <section className="band" id="contact">
           <div className="wrap contact-inner">

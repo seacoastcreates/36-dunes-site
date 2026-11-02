@@ -18,6 +18,11 @@ export function updateAnalyticsConsent(granted: boolean) {
 
 // GA4's recommended lead event. Mark generate_lead as a key event in GA, and
 // register form_name as an event-scoped custom dimension to split by form.
-export function trackLead(formName: string) {
-  window.gtag?.("event", "generate_lead", { form_name: formName });
+// lead_source (optional) says which page or placement the form sat on; register
+// it as an event-scoped custom dimension too.
+export function trackLead(formName: string, leadSource?: string) {
+  window.gtag?.("event", "generate_lead", {
+    form_name: formName,
+    ...(leadSource ? { lead_source: leadSource } : {}),
+  });
 }

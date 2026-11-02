@@ -9,7 +9,10 @@ export default function SiteFooter() {
         <a href="/blog">Blog</a>
         <Link href="/#approach">Approach</Link>
         <a href="/resources/ai-readiness-checklist">AI Readiness Checklist</a>
+        <Link href="/prospect-lists/dock-and-marine">Leads for dock dealers</Link>
+        <Link href="/prospect-lists/electronic-components">Leads for component brokers</Link>
         <a href="/rfp">Request a proposal</a>
+        <a href="/portal/login">Client login</a>
       </nav>
       <div className="wrap footer-row">
         <div className="footer-brand">

@@ -1,12 +1,14 @@
 import type { MetadataRoute } from "next";
 import { services } from "../lib/services";
 import { blogPosts } from "../lib/blog";
+import { industries } from "../lib/industries";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: "https://36dunes.com", lastModified: now, changeFrequency: "monthly", priority: 1 },
+    { url: "https://36dunes.com/products", lastModified: now, changeFrequency: "monthly", priority: 0.95 },
     { url: "https://36dunes.com/services", lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: "https://36dunes.com/work/photonester", lastModified: now, changeFrequency: "yearly", priority: 0.8 },
     { url: "https://36dunes.com/work/call-list", lastModified: now, changeFrequency: "monthly", priority: 0.85 },
@@ -34,5 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
+  const industryRoutes: MetadataRoute.Sitemap = industries.map((industry) => ({
+    url: `https://36dunes.com/prospect-lists/${industry.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
+  return [...staticRoutes, ...industryRoutes, ...serviceRoutes, ...blogRoutes];
 }

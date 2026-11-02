@@ -10,6 +10,13 @@ export type SearchEntry = {
 
 const staticEntries: SearchEntry[] = [
   {
+    title: "Prospect Radar",
+    description:
+      "Every business in your territory, researched and ranked by fit, with a call brief, pitch and shared call log for your sales team.",
+    url: "/products#prospect-radar",
+    type: "Page",
+  },
+  {
     title: "Services",
     description:
       "Machine learning consulting, custom AI development, automation, and MLOps — see every service.",

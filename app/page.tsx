@@ -6,6 +6,7 @@ import ScrollReveal from "./components/ScrollReveal";
 import ContactForm from "./components/ContactForm";
 import ContactBubbles from "./components/ContactBubbles";
 import HeroContactForm from "./components/HeroContactForm";
+import BookCallButton from "./components/BookCallButton";
 
 export default function Home() {
   return (
@@ -16,25 +17,25 @@ export default function Home() {
         <section className="hero">
           <div className="wrap hero-grid">
             <div>
-              <div className="eyebrow">AI / ML STUDIO — SOFTWARE ENGINEERING PARTNER</div>
+              <div className="eyebrow">PROSPECT RESEARCH FOR SALES TEAMS</div>
               <h1>
-                Intelligence at scale. <em>Strategy</em> in code.
+                Know exactly <em>who to call</em> next.
               </h1>
               <p className="lede">
-                36&nbsp;Dunes is a machine learning and AI solutions studio that helps
-                forward-thinking businesses unlock the power of their data — custom
-                models, predictive analytics, and automation pipelines that turn
-                information into strategic advantage. When the job calls for it, we
-                build the software underneath it too: full-stack web apps, iOS, and
-                the cloud infrastructure that keeps it all running.
+                A ranked list of the businesses in your territory worth calling,
+                each with a direct contact and a specific reason to call, not a
+                form-letter opener. Every contact is checked against the
+                business&apos;s own site, not pulled from a stale directory.
+                Delivered in days.
               </p>
               <div className="hero-actions">
-                <a className="btn btn-primary" href="#contact">
-                  Start a project
+                <a className="btn btn-primary" href="#hero-name">
+                  Get 10 free leads
                 </a>
-                <a className="btn btn-ghost" href="#work">
-                  See the work →
-                </a>
+                <BookCallButton source="hero" />
+                <Link className="btn btn-ghost" href="/work/call-list">
+                  See how it works →
+                </Link>
               </div>
             </div>
             <HeroContactForm />
@@ -58,17 +59,216 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="band plain" id="services">
+        <section className="band plain" id="work">
           <div className="wrap">
             <div className="section-head">
               <div>
-                <div className="eyebrow">CAPABILITIES</div>
-                <h2>Two disciplines, one senior team.</h2>
+                <div className="eyebrow">FIELD NOTES</div>
+                <h2>Proof, not a portfolio deck.</h2>
               </div>
               <p>
-                Most studios pick a lane: applied AI, or product engineering.
-                36&nbsp;Dunes runs both, because the models rarely matter without a
-                product built well enough to put them in front of someone.
+                Recent builds, detailed the way we&apos;d hand them to
+                another engineer — not dressed up for a pitch. Groundwork and
+                PhotoNester are live: try them yourself.
+              </p>
+            </div>
+            <div className="case-card reveal" data-anim="">
+              <div>
+                <Image
+                  className="case-media"
+                  src="/work/call-list/card.jpg"
+                  alt="An illustrative Call List lead card with a fit score, tier badge, and call brief, contact details blurred, under summary counts for the full list"
+                  width={1100}
+                  height={619}
+                  sizes="(max-width: 820px) 100vw, 560px"
+                />
+                <div className="eyebrow">CASE STUDY — SALES PROSPECTING</div>
+                <h3>Call List: when a pipeline dries up, the problem is usually the list.</h3>
+                <p className="narrative">
+                  A sales team with a defined, narrow market had run out of
+                  leads worth calling — the usual sources were stale
+                  directory exports and old trade-show lists. We built a
+                  single ranked list instead: one row per real business,
+                  researched for fit, with a direct contact where one could
+                  be found and a specific reason to call, not a form-letter
+                  opener. Every contact gets checked against the business&apos;s
+                  own site before it makes the list.
+                </p>
+                <Link className="back-link case-read-more" href="/work/call-list">
+                  Read the full case study →
+                </Link>
+              </div>
+              <div className="case-side">
+                <dl className="spec-list">
+                  <div className="spec-row">
+                    <dt>Scope</dt>
+                    <dd>Regional, one industry</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Method</dt>
+                    <dd>Researched, not scraped</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Per lead</dt>
+                    <dd>Fit score, contact, call reasons</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Verification</dt>
+                    <dd>Checked against the business&apos;s own site</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Timeline</dt>
+                    <dd>Days, not weeks</dd>
+                  </div>
+                </dl>
+                <Link className="btn btn-ghost case-cta" href="/work/call-list#get-a-list">
+                  Get a sample for my market →
+                </Link>
+              </div>
+            </div>
+
+            <div className="case-card reveal" data-anim="">
+              <div>
+                <Image
+                  className="case-media"
+                  src="/work/groundwork/card.jpg"
+                  alt="Groundwork's national map, one dot per metro sized by market and colored green or red by its 12-month forecast"
+                  width={1600}
+                  height={900}
+                  sizes="(max-width: 820px) 100vw, 560px"
+                />
+                <div className="eyebrow">CASE STUDY — HOUSING MARKET FORECASTING</div>
+                <h3>Groundwork: a housing forecast is only useful if you can check its track record.</h3>
+                <p className="narrative">
+                  A national housing headline tells you little about the ZIP
+                  code you&apos;re actually looking at. We built Groundwork to
+                  connect the two: one LightGBM model forecasts each metro&apos;s
+                  direction, while another estimates how individual ZIPs will
+                  perform relative to their market. Zillow home values, Redfin
+                  market activity, and mortgage rates feed a searchable map
+                  and comparison tool. Every 12-month forecast comes with an
+                  uncertainty range, and walk-forward backtests show how the
+                  models performed against nine years of real outcomes —
+                  including the years they got wrong.
+                </p>
+                <a
+                  className="back-link case-read-more"
+                  href="https://groundwork.36dunes.com/model"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Explore the model and backtests →
+                </a>
+              </div>
+              <div className="case-side">
+                <dl className="spec-list">
+                  <div className="spec-row">
+                    <dt>Coverage</dt>
+                    <dd>894 metros · 26,268 ZIP codes</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Model</dt>
+                    <dd>LightGBM · metro trend + ZIP-relative change</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Forecast</dt>
+                    <dd>12 months ahead, with 80% ranges</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Validation</dt>
+                    <dd>Walk-forward backtests · 2017–2025</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Stack</dt>
+                    <dd>Next.js · FastAPI · PostgreSQL</dd>
+                  </div>
+                </dl>
+                <a
+                  className="btn btn-ghost case-cta"
+                  href="https://groundwork.36dunes.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Explore Groundwork →
+                </a>
+              </div>
+            </div>
+
+            <div className="case-card reveal" data-anim="">
+              <div>
+                <Image
+                  className="case-media"
+                  src="/work/photonester/screens.jpg"
+                  alt="Two PhotoNester iPhone screens: a library mid-scan at 9,180 of 9,299 photos, and the finished run offering to open the new albums in Photos"
+                  width={1600}
+                  height={900}
+                  sizes="(max-width: 820px) 100vw, 560px"
+                />
+                <div className="eyebrow">CASE STUDY — CONSUMER iOS</div>
+                <h3>PhotoNester: sorting a million photos without a single upload.</h3>
+                <p className="narrative">
+                  A camera roll with years of unsorted photos is a search problem,
+                  not a storage problem. We built PhotoNester to solve it entirely
+                  on-device: CLIP embeddings converted to Core&nbsp;ML classify each
+                  photo&apos;s visual content, then k-means clustering groups them
+                  into albums — Travel, Pets, Food, Documents — without hardcoded
+                  labels and without a single image ever leaving the phone. Getting
+                  there meant batching inference to protect battery life,
+                  persisting progress mid-scan, and tracking down an App Store
+                  rejection to a Core ML compute-unit fallback on older iPadOS
+                  builds.
+                </p>
+                <Link className="back-link case-read-more" href="/work/photonester">
+                  Read the full case study →
+                </Link>
+              </div>
+              <div className="case-side">
+                <dl className="spec-list">
+                  <div className="spec-row">
+                    <dt>Platform</dt>
+                    <dd>iOS · Swift + SwiftUI</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Model</dt>
+                    <dd>OpenAI CLIP → Core ML</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Method</dt>
+                    <dd>Unsupervised k-means on embeddings</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Privacy</dt>
+                    <dd>100% on-device, no server</dd>
+                  </div>
+                  <div className="spec-row">
+                    <dt>Result</dt>
+                    <dd>Full library sorted in minutes</dd>
+                  </div>
+                </dl>
+                <a
+                  className="btn btn-ghost case-cta"
+                  href="https://photonester.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Try PhotoNester →
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="plain" id="services">
+          <div className="wrap">
+            <div className="section-head">
+              <div>
+                <div className="eyebrow">ALSO FROM 36 DUNES</div>
+                <h2>Custom AI and software, built to order.</h2>
+              </div>
+              <p>
+                The same engineering behind the call lists is available for your
+                own problem: custom models, automation, and the web or iOS
+                product that puts them in front of someone.
               </p>
             </div>
             <div className="capability-groups">
@@ -146,210 +346,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="plain" id="work">
-          <div className="wrap">
-            <div className="section-head">
-              <div>
-                <div className="eyebrow">FIELD NOTES</div>
-                <h2>Proof, not a portfolio deck.</h2>
-              </div>
-              <p>
-                Recent builds, detailed the way we&apos;d hand them to
-                another engineer — not dressed up for a pitch.
-              </p>
-            </div>
-            <div className="case-card reveal" data-anim="">
-              <div>
-                <Image
-                  className="case-media"
-                  src="/work/groundwork/card.jpg"
-                  alt="Groundwork's national map, one dot per metro sized by market and colored green or red by its 12-month forecast"
-                  width={1600}
-                  height={900}
-                  sizes="(max-width: 820px) 100vw, 560px"
-                />
-                <div className="eyebrow">CASE STUDY — HOUSING MARKET FORECASTING</div>
-                <h3>Groundwork: a housing forecast is only useful if you can check its track record.</h3>
-                <p className="narrative">
-                  A national housing headline tells you little about the ZIP
-                  code you&apos;re actually looking at. We built Groundwork to
-                  connect the two: one LightGBM model forecasts each metro&apos;s
-                  direction, while another estimates how individual ZIPs will
-                  perform relative to their market. Zillow home values, Redfin
-                  market activity, and mortgage rates feed a searchable map
-                  and comparison tool. Every 12-month forecast comes with an
-                  uncertainty range, and walk-forward backtests show how the
-                  models performed against nine years of real outcomes —
-                  including the years they got wrong.
-                </p>
-                <a
-                  className="back-link case-read-more"
-                  href="https://groundwork.36dunes.com/model"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Explore the model and backtests →
-                </a>
-              </div>
-              <div className="case-side">
-                <dl className="spec-list">
-                  <div className="spec-row">
-                    <dt>Coverage</dt>
-                    <dd>894 metros · 26,268 ZIP codes</dd>
-                  </div>
-                  <div className="spec-row">
-                    <dt>Model</dt>
-                    <dd>LightGBM · metro trend + ZIP-relative change</dd>
-                  </div>
-                  <div className="spec-row">
-                    <dt>Forecast</dt>
-                    <dd>12 months ahead, with 80% ranges</dd>
-                  </div>
-                  <div className="spec-row">
-                    <dt>Validation</dt>
-                    <dd>Walk-forward backtests · 2017–2025</dd>
-                  </div>
-                  <div className="spec-row">
-                    <dt>Stack</dt>
-                    <dd>Next.js · FastAPI · PostgreSQL</dd>
-                  </div>
-                </dl>
-                <a
-                  className="btn btn-ghost case-cta"
-                  href="https://groundwork.36dunes.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Explore Groundwork →
-                </a>
-              </div>
-            </div>
-
-            <div className="case-card reveal" data-anim="">
-              <div>
-                <Image
-                  className="case-media"
-                  src="/work/call-list/card.jpg"
-                  alt="An illustrative Call List lead card with a fit score, tier badge, and call brief, contact details blurred, under summary counts for the full list"
-                  width={1100}
-                  height={619}
-                  sizes="(max-width: 820px) 100vw, 560px"
-                />
-                <div className="eyebrow">CASE STUDY — SALES PROSPECTING</div>
-                <h3>Call List: when a pipeline dries up, the problem is usually the list.</h3>
-                <p className="narrative">
-                  A sales team with a defined, narrow market had run out of
-                  leads worth calling — the usual sources were stale
-                  directory exports and old trade-show lists. We built a
-                  single ranked list instead: one row per real business,
-                  researched for fit, with a direct contact where one could
-                  be found and a specific reason to call, not a form-letter
-                  opener. Every contact gets checked against the business&apos;s
-                  own site before it makes the list.
-                </p>
-                <Link className="back-link case-read-more" href="/work/call-list">
-                  Read the full case study →
-                </Link>
-              </div>
-              <div className="case-side">
-                <dl className="spec-list">
-                  <div className="spec-row">
-                    <dt>Scope</dt>
-                    <dd>Regional, one industry</dd>
-                  </div>
-                  <div className="spec-row">
-                    <dt>Method</dt>
-                    <dd>Researched, not scraped</dd>
-                  </div>
-                  <div className="spec-row">
-                    <dt>Per lead</dt>
-                    <dd>Fit score, contact, call reasons</dd>
-                  </div>
-                  <div className="spec-row">
-                    <dt>Verification</dt>
-                    <dd>Checked against the business&apos;s own site</dd>
-                  </div>
-                  <div className="spec-row">
-                    <dt>Timeline</dt>
-                    <dd>Days, not weeks</dd>
-                  </div>
-                </dl>
-                <Link className="btn btn-ghost case-cta" href="/work/call-list#get-a-list">
-                  Get a sample for my market →
-                </Link>
-              </div>
-            </div>
-
-            <div className="case-card reveal" data-anim="">
-              <div>
-                <Image
-                  className="case-media"
-                  src="/work/photonester/screens.jpg"
-                  alt="Two PhotoNester iPhone screens: a library mid-scan at 9,180 of 9,299 photos, and the finished run offering to open the new albums in Photos"
-                  width={1600}
-                  height={900}
-                  sizes="(max-width: 820px) 100vw, 560px"
-                />
-                <div className="eyebrow">CASE STUDY — CONSUMER iOS</div>
-                <h3>PhotoNester: sorting a million photos without a single upload.</h3>
-                <p className="narrative">
-                  A camera roll with years of unsorted photos is a search problem,
-                  not a storage problem. We built PhotoNester to solve it entirely
-                  on-device: CLIP embeddings converted to Core&nbsp;ML classify each
-                  photo&apos;s visual content, then k-means clustering groups them
-                  into albums — Travel, Pets, Food, Documents — without hardcoded
-                  labels and without a single image ever leaving the phone. Getting
-                  there meant batching inference to protect battery life,
-                  persisting progress mid-scan, and tracking down an App Store
-                  rejection to a Core ML compute-unit fallback on older iPadOS
-                  builds.
-                </p>
-                <Link className="back-link case-read-more" href="/work/photonester">
-                  Read the full case study →
-                </Link>
-              </div>
-              <div className="case-side">
-                <dl className="spec-list">
-                  <div className="spec-row">
-                    <dt>Platform</dt>
-                    <dd>iOS · Swift + SwiftUI</dd>
-                  </div>
-                  <div className="spec-row">
-                    <dt>Model</dt>
-                    <dd>OpenAI CLIP → Core ML</dd>
-                  </div>
-                  <div className="spec-row">
-                    <dt>Method</dt>
-                    <dd>Unsupervised k-means on embeddings</dd>
-                  </div>
-                  <div className="spec-row">
-                    <dt>Privacy</dt>
-                    <dd>100% on-device, no server</dd>
-                  </div>
-                  <div className="spec-row">
-                    <dt>Result</dt>
-                    <dd>Full library sorted in minutes</dd>
-                  </div>
-                </dl>
-                <a
-                  className="btn btn-ghost case-cta"
-                  href="https://photonester.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Try PhotoNester →
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="band plain" id="approach">
           <div className="wrap">
             <div className="section-head">
               <div>
                 <div className="eyebrow">APPROACH</div>
-                <h2>How a two-person build stays fast.</h2>
+                <h2>How a one-engineer build stays fast.</h2>
               </div>
               <p>No account layer between you and the person writing the code. That&apos;s most of it.</p>
             </div>
@@ -423,10 +425,15 @@ export default function Home() {
             <div>
               <div className="eyebrow">FOUNDER-LED</div>
               <h2>One senior engineer, not a bench of juniors.</h2>
+              <p className="founder-sig">
+                Kirby Robinson, founder ·{" "}
+                <a href="mailto:kirby@36dunes.com">kirby@36dunes.com</a>
+              </p>
             </div>
             <div className="about-copy">
               <p>
-                36&nbsp;Dunes is built around a full-stack engineer with over ten
+                I&apos;m Kirby Robinson, and 36&nbsp;Dunes is me: a full-stack
+                engineer with over ten
                 years of experience shipping web applications on Python,
                 JavaScript, React, and AWS. That includes healthcare platforms
                 connecting patients to clinical trials, predictive machine
@@ -436,8 +443,20 @@ export default function Home() {
               </p>
               <p>
                 Based on the coast in York, Maine, and working with a small number
-                of clients at a time, by design.
+                of clients at a time, by design. You talk to the person writing
+                the code, every time.
               </p>
+              <div className="article-callout founding-offer">
+                <p>
+                  <strong>Founding clients.</strong> The first three clients get
+                  founding-client pricing in exchange for an honest testimonial
+                  and permission to write up the work. Start with the free
+                  10-lead sample and we&apos;ll talk about it from there.
+                </p>
+                <a className="btn btn-ghost" href="#hero-name">
+                  Get 10 free leads →
+                </a>
+              </div>
               <div className="stat-row">
                 <div className="stat">
                   <div className="value">10+</div>
@@ -456,6 +475,24 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="plain" id="checklist">
+          <div className="wrap">
+            <div className="article-callout lead-magnet-callout">
+              <div>
+                <div className="eyebrow">FREE RESOURCE</div>
+                <h3>Not ready to talk yet? Start with the AI Readiness Checklist.</h3>
+                <p>
+                  Eight questions that tell you whether your data is ready for
+                  a custom AI model, before you commit budget. No call required.
+                </p>
+              </div>
+              <Link className="btn btn-ghost" href="/resources/ai-readiness-checklist">
+                Get the checklist →
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className="band" id="contact">
           <ContactBubbles />
           <div className="wrap contact-inner">
@@ -468,6 +505,7 @@ export default function Home() {
             </p>
             <ContactForm />
             <div className="contact-actions">
+              <BookCallButton source="contact" className="btn btn-primary" />
               <a className="btn btn-ghost" href="#top">
                 Back to top ↑
               </a>

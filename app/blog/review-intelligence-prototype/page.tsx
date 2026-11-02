@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import PostLeadOffers from "../../components/PostLeadOffers";
 
 export const metadata: Metadata = {
   title: "What a 4.16-Star Average Doesn't Tell You — 36 Dunes",
@@ -423,6 +424,8 @@ export default function ReviewIntelligencePost() {
             </blockquote>
           </div>
         </section>
+
+        <PostLeadOffers />
 
         <section className="band" id="contact">
           <div className="wrap contact-inner">

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
+import PostLeadOffers from "../../components/PostLeadOffers";
 
 export const metadata: Metadata = {
   title: "When to Build a Custom Model vs. Use an API — 36 Dunes",
@@ -246,6 +247,8 @@ export default function CustomModelVsApiPost() {
             </div>
           </div>
         </section>
+
+        <PostLeadOffers />
 
         <section className="band" id="contact">
           <div className="wrap contact-inner">

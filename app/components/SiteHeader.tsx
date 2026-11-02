@@ -59,11 +59,8 @@ export default function SiteHeader() {
               />
             </svg>
           </a>
-          <a className="btn btn-ghost" href="/portal/login">
-            Clients
-          </a>
-          <a className="btn btn-primary" href="/rfp">
-            Request a proposal
+          <a className="btn btn-primary" href="/work/call-list#get-a-list">
+            Get 10 free leads
           </a>
         </div>
         <label className="nav-toggle-btn" htmlFor="nav-toggle">
@@ -77,7 +74,7 @@ export default function SiteHeader() {
         <Link href="/#work">Work</Link>
         <a href="/blog">Blog</a>
         <Link href="/#approach">About</Link>
-        <a href="/portal/login">Clients</a>
+        <a href="/work/call-list#get-a-list">Get 10 free leads</a>
         <a href="/rfp">Request a proposal</a>
         <a href="tel:+18572094404">Call (857) 209-4404</a>
       </div>

@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { trackLead } from "../lib/analytics";
+import BookCallButton from "./BookCallButton";
 
 function encode(data: Record<string, string>) {
   return Object.keys(data)
@@ -11,7 +12,7 @@ function encode(data: Record<string, string>) {
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function CallListForm() {
+export default function CallListForm({ source = "call-list-page" }: { source?: string } = {}) {
   const [status, setStatus] = useState<Status>("idle");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -32,7 +33,7 @@ export default function CallListForm() {
         body: encode(data),
       });
       if (!response.ok) throw new Error("Submission failed");
-      trackLead("call-list-interest");
+      trackLead("call-list-interest", source);
       setStatus("success");
       form.reset();
     } catch {
@@ -46,10 +47,11 @@ export default function CallListForm() {
         <div className="eyebrow">REQUEST RECEIVED</div>
         <h3>Thanks — we&apos;ve got it.</h3>
         <p>
-          We&apos;ll reply within two business days with your free 10-lead
+          We&apos;ll reply the same business day with when to expect your free 10-lead
           preview, or tell you honestly if there isn&apos;t enough
           researchable data in your market to make one worth building.
         </p>
+        <BookCallButton source="call-list-success" label="Want to talk it through? Book 15 min" />
       </div>
     );
   }
@@ -74,6 +76,7 @@ export default function CallListForm() {
         className="rfp-form"
       >
         <input type="hidden" name="form-name" value="call-list-interest" />
+        <input type="hidden" name="source" value={source} />
         <p className="hp-field" aria-hidden="true">
           <label>
             Leave this field blank

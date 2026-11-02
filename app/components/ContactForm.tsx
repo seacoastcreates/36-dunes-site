@@ -57,7 +57,7 @@ export default function ContactForm() {
       <div className="rfp-success">
         <div className="eyebrow">MESSAGE SENT</div>
         <h3>Thanks — we&apos;ve got it.</h3>
-        <p>We read every message and reply by email within two business days.</p>
+        <p>We read every message and reply by email the same business day.</p>
       </div>
     );
   }
