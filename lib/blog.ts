@@ -15,6 +15,18 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "building-support-assistant",
+    title: "Building a Support Assistant That Knows When to Say “I Don’t Know”",
+    excerpt:
+      "A prototype support assistant for a small manufacturer. It answers only from the company’s own FAQ, policies, and instructions, shows where each answer came from, and hands anything it can’t answer to a person.",
+    date: "2026-11-09",
+    dateDisplay: "November 9, 2026",
+    readTime: "6 min read",
+    tags: ["Build log", "Applied NLP"],
+    image: "/blog/building-support-assistant/thumb.jpg",
+    imageAlt: "A stack of gold-outlined documents feeding a chat bubble with two source tags beneath it, and a dashed question-mark box pointing to a phone handset, on a deep teal background",
+  },
+  {
     slug: "scoped-ai-mvp",
     title: "Why Most “Add AI” Pitches Fail (and What a Good Scoped MVP Looks Like)",
     excerpt:

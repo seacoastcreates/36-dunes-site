@@ -721,6 +721,56 @@ footer {
   text-align: center;
 }
 
+/* example chat exchange inside post body copy */
+.chat-example {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.chat-example .chat-msg {
+  max-width: 82%;
+  padding: 11px 15px;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.chat-example .chat-q {
+  align-self: flex-end;
+  background: var(--accent);
+  color: var(--accent-on);
+  border-bottom-right-radius: 4px;
+}
+.chat-example .chat-a {
+  align-self: flex-start;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-bottom-left-radius: 4px;
+}
+.chat-example .chat-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: -4px;
+}
+.chat-example .chat-sources span {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  padding: 3px 9px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+}
+@media (max-width: 640px) {
+  .chat-example { padding: 16px; }
+  .chat-example .chat-msg { max-width: 92%; }
+}
+
 /* pipeline diagram inside post body copy (FlowDiagram) */
 .prose .flow { margin-top: 2em; }
 .flow-steps { list-style: none; margin: 0; display: flex; }
