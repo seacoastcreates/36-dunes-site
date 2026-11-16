@@ -15,6 +15,18 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "selling-and-doing-the-work",
+    title: "Selling the Work and Doing the Work: Notes From a One-Person Shop",
+    excerpt:
+      "When you’re the one who sells and the one who delivers, the two jobs fight each other. Why selling keeps losing, and the small habits that keep it from slipping.",
+    date: "2026-11-16",
+    dateDisplay: "November 16, 2026",
+    readTime: "6 min read",
+    tags: ["Field notes", "Small business"],
+    image: "/blog/selling-and-doing-the-work/thumb.jpg",
+    imageAlt: "A gold balance scale holding a wrench on one pan and a paper airplane on the other, with a calendar page behind it, on a deep rust-brown background",
+  },
+  {
     slug: "building-support-assistant",
     title: "Building a Support Assistant That Knows When to Say “I Don’t Know”",
     excerpt:
