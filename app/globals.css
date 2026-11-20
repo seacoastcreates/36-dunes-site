@@ -580,6 +580,14 @@ footer {
 .footer-contact a { color: var(--text-dim); text-decoration: none; transition: color 0.15s ease; }
 .footer-contact a:hover, .footer-contact a:focus-visible { color: var(--text); }
 .footer-contact span { color: var(--line); }
+.footer-social { display: flex; align-items: center; gap: 14px; }
+.footer-social a {
+  display: inline-flex;
+  padding: 4px;
+  color: var(--text-dim);
+  transition: color 0.15s ease;
+}
+.footer-social a:hover, .footer-social a:focus-visible { color: var(--accent); }
 
 .cookie-banner {
   position: fixed;
