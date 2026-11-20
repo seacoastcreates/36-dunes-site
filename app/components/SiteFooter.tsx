@@ -3,16 +3,25 @@ import Link from "next/link";
 export default function SiteFooter() {
   return (
     <footer>
-      <nav className="wrap footer-nav">
-        <a href="/services">Services</a>
-        <a href="/work/photonester">Work</a>
-        <a href="/blog">Blog</a>
-        <Link href="/#approach">Approach</Link>
-        <a href="/resources/ai-readiness-checklist">AI Readiness Checklist</a>
-        <Link href="/prospect-lists/dock-and-marine">Leads for dock dealers</Link>
-        <Link href="/prospect-lists/electronic-components">Leads for component brokers</Link>
-        <a href="/rfp">Request a proposal</a>
-        <a href="/portal/login">Client login</a>
+      <nav className="wrap footer-nav" aria-label="Footer">
+        <div className="footer-col">
+          <div className="footer-col-head">36 Dunes</div>
+          <a href="/services">Services</a>
+          <Link href="/#work">Work</Link>
+          <a href="/blog">Blog</a>
+          <Link href="/#approach">About</Link>
+        </div>
+        <div className="footer-col">
+          <div className="footer-col-head">Leads for</div>
+          <Link href="/prospect-lists/dock-and-marine">Dock dealers</Link>
+          <Link href="/prospect-lists/electronic-components">Component brokers</Link>
+        </div>
+        <div className="footer-col">
+          <div className="footer-col-head">Other</div>
+          <a href="/resources/ai-readiness-checklist">AI Readiness Checklist</a>
+          <a href="/rfp">Request a proposal</a>
+          <a href="/portal/login">Client login</a>
+        </div>
       </nav>
       <div className="wrap footer-row">
         <div className="footer-brand">

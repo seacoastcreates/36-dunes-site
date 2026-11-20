@@ -540,9 +540,9 @@ footer {
   border-top: 1px solid var(--line);
 }
 .footer-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 28px;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 24px 72px;
   padding-bottom: 24px;
   margin-bottom: 24px;
   border-bottom: 1px solid var(--line);
@@ -554,6 +554,18 @@ footer {
   transition: color 0.15s ease;
 }
 .footer-nav a:hover, .footer-nav a:focus-visible { color: var(--text); }
+.footer-col { display: flex; flex-direction: column; gap: 10px; }
+.footer-col-head {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+@media (max-width: 560px) {
+  .footer-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 20px; }
+}
 .footer-row {
   display: flex;
   justify-content: space-between;
