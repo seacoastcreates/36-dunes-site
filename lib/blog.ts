@@ -15,6 +15,18 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "leads-from-public-records",
+    title: "Your Best Leads Might Already Be Public Record",
+    excerpt:
+      "A prospect list for a school seating manufacturer built from free state construction records and about $2 of AI. Why timing beats a bigger list, who actually makes the decision, and the stale-record mistake to avoid.",
+    date: "2026-11-20",
+    dateDisplay: "November 20, 2026",
+    readTime: "6 min read",
+    tags: ["Build log", "Prospecting"],
+    image: "/blog/leads-from-public-records/thumb.jpg",
+    imageAlt: "A gold outline of a school building above a stack of documents, with a timeline beneath it where one segment glows brighter than the rest, on a dark slate-blue background",
+  },
+  {
     slug: "selling-and-doing-the-work",
     title: "Selling the Work and Doing the Work: Notes From a One-Person Shop",
     excerpt:
