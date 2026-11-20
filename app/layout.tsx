@@ -36,7 +36,7 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-const siteTitle = "36 Dunes — Researched Sales Prospect Lists & Custom AI | York, Maine";
+const siteTitle = "36 Dunes — Researched Sales Prospect Lists & Custom AI | 36 Dunes";
 const siteDescription =
   "Ranked, researched lists of the businesses in your territory worth calling, each with a direct contact and a reason to call. First 10 leads free. Plus custom AI and software from a York, Maine engineer.";
 
