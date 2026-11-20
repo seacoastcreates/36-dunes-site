@@ -9,7 +9,7 @@ import FlowDiagram from "../../components/FlowDiagram";
 export const metadata: Metadata = {
   title: "Your Best Leads Might Already Be Public Record — 36 Dunes",
   description:
-    "A prospect list for a school seating manufacturer built from free state construction records and about $2 of AI. Why timing beats a bigger list, who actually makes the decision, and the stale-record mistake to avoid.",
+    "A prospect list for a manufacturer that sells into school construction, built from free state construction records and about $2 of AI. Why timing beats a bigger list, who actually makes the decision, and the stale-record mistake to avoid.",
   alternates: { canonical: "/blog/leads-from-public-records" },
 };
 
@@ -44,8 +44,8 @@ export default function LeadsFromPublicRecordsPost() {
                 <div className="eyebrow">BUILD LOG</div>
                 <h1>Your Best Leads Might Already Be Public Record</h1>
                 <p className="lede">
-                  A prospect list for a school seating manufacturer, built from
-                  free state construction records and about $2 of AI. Why
+                  A prospect list for a manufacturer that sells into school
+                  construction, built from free state construction records and about $2 of AI. Why
                   timing beats a bigger list, who actually makes the decision,
                   and the stale-record mistake to avoid.
                 </p>
@@ -83,20 +83,20 @@ export default function LeadsFromPublicRecordsPost() {
               spending it on.
             </p>
             <p>
-              I built a prospect list on spec for a New England manufacturer
-              of gym bleachers and auditorium seating, and it turned out to be
-              one of the cheapest and most useful builds I’ve done.
+              I built a prospect list on spec for a manufacturer whose products
+              go into new and renovated schools, and it turned out to be one of
+              the cheapest and most useful builds I’ve done.
             </p>
 
             <h2>Find out who really decides</h2>
             <p>
-              The obvious customer for school seating is the school district.
-              They pay for it. But they mostly don’t choose it.
+              The obvious customer for a product that goes into a school is the
+              school district. They pay for it. But they mostly don’t choose it.
             </p>
             <p>
               When a school gets built or renovated, the architect writes the
-              specifications, including the section that describes the
-              bleachers and auditorium seats. That happens during the design
+              specifications, including the section that describes products
+              like this one. That happens during the design
               phases, often one to three years before the project goes out to
               bid. By the time contractors are bidding, the spec either names
               your product or it names a competitor’s with “or approved equal”
@@ -105,7 +105,7 @@ export default function LeadsFromPublicRecordsPost() {
             <p>
               So the most valuable thing a list can tell this company isn’t
               “here’s a school.” It’s “here’s a school whose architect is
-              writing the seating spec right now, and here’s the firm.”
+              writing your part of the spec right now, and here’s the firm.”
             </p>
 
             <h2>Where the records live</h2>
@@ -156,13 +156,14 @@ export default function LeadsFromPublicRecordsPost() {
             </p>
             <ul>
               <li>
-                <strong>Seating need (35%).</strong> A high school with a gym
-                and an auditorium needs more seating than an elementary school.
+                <strong>Fit (35%).</strong> Some kinds of schools need much
+                more of the product than others. A high school usually needs
+                more than an elementary school.
               </li>
               <li>
                 <strong>Timing (30%).</strong> Projects in the design phases,
                 where the spec is being written, score highest. Projects
-                already under construction score low, because the seating
+                already under construction score low, because the product
                 decision is mostly made.
               </li>
               <li>
@@ -178,7 +179,7 @@ export default function LeadsFromPublicRecordsPost() {
               project in early design, it says to contact the named
               architect’s K-12 team now. For one that’s already under
               construction, it says to ask the construction manager whether the
-              seating package is still open, and if it isn’t, to offer an
+              package for the product is still open, and if it isn’t, to offer an
               inspection and service agreement after the building opens.
             </p>
 
@@ -197,8 +198,7 @@ export default function LeadsFromPublicRecordsPost() {
             <h2>What came out</h2>
             <p>
               123 active school projects across Maine, New Hampshire, and
-              Massachusetts. In 25 of them, the seating spec is being written
-              now. 72 name the architect, so the person to call is already on
+              Massachusetts. In 25 of them, the spec is being written now. 72 name the architect, so the person to call is already on
               the page. On top of that, there’s a watch list of 93 Maine schools
               with a documented need but no state funding yet. Some of those
               will pass local bonds and turn into projects.
@@ -216,8 +216,7 @@ export default function LeadsFromPublicRecordsPost() {
               years old. The list said “approved,” so I treated them as
               active. When I went back and checked each one, two schools had
               already been built and opened. Several others had moved on to
-              construction. I caught it after I’d already reached out once,
-              which is later than I should have.
+              construction. I caught it later than I should have.
             </p>
             <p>
               Nothing in the record was wrong. It was just old. A record shows
@@ -231,7 +230,7 @@ export default function LeadsFromPublicRecordsPost() {
 
             <h2>Where else this works</h2>
             <p>
-              School seating is a niche, but the pattern isn’t. Lots of buying
+              School construction is a niche, but the pattern isn’t. Lots of buying
               decisions leave a public trail before the money gets spent:
             </p>
             <ul>

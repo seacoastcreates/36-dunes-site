@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     slug: "leads-from-public-records",
     title: "Your Best Leads Might Already Be Public Record",
     excerpt:
-      "A prospect list for a school seating manufacturer built from free state construction records and about $2 of AI. Why timing beats a bigger list, who actually makes the decision, and the stale-record mistake to avoid.",
+      "A prospect list for a manufacturer that sells into school construction, built from free state construction records and about $2 of AI. Why timing beats a bigger list, who actually makes the decision, and the stale-record mistake to avoid.",
     date: "2026-11-20",
     dateDisplay: "November 20, 2026",
     readTime: "6 min read",
