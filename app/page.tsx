@@ -433,7 +433,7 @@ export default function Home() {
             <div className="about-copy">
               <p>
                 I&apos;m Kirby Robinson, and 36&nbsp;Dunes is me: a full-stack
-                engineer with over ten
+                engineer with over fifteen
                 years of experience shipping web applications on Python,
                 JavaScript, React, and AWS. That includes healthcare platforms
                 connecting patients to clinical trials, predictive machine
