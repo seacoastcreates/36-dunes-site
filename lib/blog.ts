@@ -15,6 +15,18 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "building-knock-on",
+    title: "Building Knock-On: A Puzzle Game My Kids Have to Think Through",
+    excerpt:
+      "My kids were playing mindless games on an old computer of mine, so I built them a chain-reaction physics puzzle inspired by a 1990s classic. Fifty puzzles, a parts drawer, and a Run button.",
+    date: "2026-11-23",
+    dateDisplay: "November 23, 2026",
+    readTime: "5 min read",
+    tags: ["Build log", "Side project"],
+    image: "/blog/building-knock-on/thumb.jpg",
+    imageAlt: "A Knock-On puzzle board: a tan pegboard with planks, a copper ball resting on a large grey gear, a light switch, a glass bin, and a carrot on the floor",
+  },
+  {
     slug: "leads-from-public-records",
     title: "Your Best Leads Might Already Be Public Record",
     excerpt:
