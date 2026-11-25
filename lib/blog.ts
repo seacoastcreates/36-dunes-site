@@ -15,6 +15,18 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "thanksgiving-travel-by-the-numbers",
+    title: "Thanksgiving Travel by the Numbers, and Which Models Can Predict It",
+    excerpt:
+      "81.5 million travelers, the priciest Thanksgiving airfare in a decade, and the airports most likely to delay you. Plus an engineer’s look at which predictive models actually work for holiday crowds, flight delays, and fares.",
+    date: "2026-11-25",
+    dateDisplay: "November 25, 2026",
+    readTime: "8 min read",
+    tags: ["Data notes", "Predictive models"],
+    image: "/blog/thanksgiving-travel-by-the-numbers/thumb.jpg",
+    imageAlt: "A gold-line bar chart of the seven days of Thanksgiving week on a dark background, with Thursday the shortest bar and Sunday the tallest, and a dashed flight path arcing over the bars to a small airplane",
+  },
+  {
     slug: "building-knock-on",
     title: "Building Knock-On: A Puzzle Game My Kids Have to Think Through",
     excerpt:
