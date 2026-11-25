@@ -81,8 +81,7 @@ export default function ThanksgivingTravelPost() {
             <p>
               Thanksgiving is the most predictable travel event in America.
               Same Thursday, same Wednesday rush, same Sunday scramble home.
-              That makes it a good test of a question we get asked a lot in
-              other forms: how far can a model really see ahead? The answer
+              That makes it a good test of a question worth asking of any forecast: how far can a model really see ahead? The answer
               is different for crowds, for delays, and for prices, and the
               reasons carry over to almost any forecasting problem a
               business has.
@@ -114,8 +113,7 @@ export default function ThanksgivingTravelPost() {
               <li>
                 <strong>More than 417,000 flights.</strong> The FAA&apos;s
                 nine-day forecast, reported as the busiest Thanksgiving
-                stretch in 16 years. Tuesday was the peak for flights, at
-                52,345.
+                stretch in 16 years. Tuesday was forecast as the peak day, at 52,345 flights.
               </li>
               <li>
                 <strong>Cost is the story.</strong> AAA&apos;s booking data
@@ -126,18 +124,14 @@ export default function ThanksgivingTravelPost() {
                 dollars and agree on the direction.
               </li>
               <li>
-                <strong>Gas is $3.87 a gallon nationally.</strong> The
+                <strong>Gas was $3.87 a gallon nationally in mid-November.</strong> The
                 previous Thanksgiving Day record was $3.58, set in 2022.
                 AAA says gas hit record monthly highs in August, September,
                 and October.
               </li>
             </ul>
             <p>
-              Notice what happened there. Fewer people are flying, more
-              flights are scheduled, and the people who do fly are paying a
-              lot more. AAA and TSA also count different things (trips of 50
-              miles versus bodies through a checkpoint), which is why AAA
-              itself says not to compare the two.
+              Notice the mix. AAA expects slightly fewer people to fly, the FAA expects a 16-year high in flights, and the people who do fly are paying a lot more. AAA and TSA also count different things (trips of 50 miles versus people through a checkpoint), and AAA itself says not to compare the two.
             </p>
 
             <h2>The airports most likely to delay you</h2>
@@ -254,18 +248,12 @@ export default function ThanksgivingTravelPost() {
               it is not earning its keep.
             </p>
             <p>
-              The lesson we take from this: always build the dumb baseline
-              first. A surprising share of forecasting projects never beat
-              it.
+              The lesson we take from this: always build the dumb baseline first, and make the model prove it is better.
             </p>
 
             <h3>2. Whether your flight will be late: tree models, with the right inputs</h3>
             <p>
-              The published research on delay prediction mostly uses the
-              same public federal data as the rankings above, and it mostly
-              reaches the same conclusion. Gradient-boosted trees and random
-              forests come out on top, trading first place from study to
-              study. Reported accuracy runs from about 80% to the low 90s.
+              The delay-prediction studies we found mostly use the same public federal data as the rankings above, and they mostly reach the same conclusion. Gradient-boosted trees and random forests come out on top, trading first place from study to study. Reported accuracy runs from about 80% to the low 90s.
             </p>
             <p>Two cautions before anyone gets excited about those numbers.</p>
             <ul>
@@ -307,8 +295,7 @@ export default function ThanksgivingTravelPost() {
             <ul>
               <li>
                 <strong>Predicting &quot;buy or wait,&quot; not the
-                price.</strong> The consumer tools that work frame it as a
-                yes/no call. Hopper claims 95% accuracy on that call. The
+                price.</strong> The best-known consumer tools frame it as a yes/no call. Hopper claims 95% accuracy on that call. The
                 figure is the company&apos;s own and has not been
                 independently verified, so treat it as marketing until shown
                 otherwise.
@@ -318,14 +305,10 @@ export default function ThanksgivingTravelPost() {
                 a fare low, typical, or high against past prices for similar
                 trips. It is a modest claim, and modest claims age well.
                 Google&apos;s data puts the usual domestic low point at
-                about 39 days before departure. Kayak puts the Thanksgiving
-                low at about five weeks out, around October 19 this year.
+                about 39 days before departure. Kayak has been reported as putting the Thanksgiving low at about five weeks out.
               </li>
               <li>
-                <strong>No algorithm reliably wins.</strong> Across the
-                academic papers we read, random forests won one, XGBoost
-                another, and recurrent neural networks (LSTM and GRU) two
-                more. When the winner changes with every dataset, the
+                <strong>No algorithm reliably wins.</strong> In the published comparisons we found, a random forest won one, XGBoost another, and recurrent neural networks (LSTM and GRU) others. When the winner changes with every dataset, the
                 dataset is doing the work.
               </li>
             </ul>
@@ -343,8 +326,7 @@ export default function ThanksgivingTravelPost() {
             <ul>
               <li>
                 Flying Thursday morning and coming home Monday or Tuesday is
-                the most reliable pattern and among the cheapest. Sunday
-                is the priciest and most delayed day to return.
+                the most reliable pattern and among the cheapest. Sunday is the most delayed day to return and is typically the priciest.
               </li>
               <li>Take the first flight of the day. Delays build as the day goes on.</li>
               <li>
@@ -400,8 +382,7 @@ export default function ThanksgivingTravelPost() {
                 <Ext href="https://www.kotatv.com/2026/11/24/study-ranks-major-airports-most-likely-face-thanksgiving-flight-delays/">
                   Study of last year&apos;s holiday flights at the 50
                   busiest airports
-                </Ext>{" "}
-                (as reported by KOTA)
+                </Ext>{" "} (commissioned by Nova Kratom, using federal on-time data; as reported by KOTA)
               </li>
               <li>
                 <Ext href="https://www.forbes.com/sites/jillschildhouse/2026/10/12/holiday-airfare-is-at-a-10-year-high-heres-how-travelers-can-still-save/">

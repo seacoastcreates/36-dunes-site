@@ -64,18 +64,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  // No title/description/url here: child pages inherit this whole object, so
+  // setting them would stamp the homepage's values on every page's link
+  // preview. Left unset, Next fills them from each page's own title and
+  // description.
   openGraph: {
-    title: siteTitle,
-    description: siteDescription,
-    url: "/",
     siteName: "36 Dunes",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
   },
   robots: {
     index: true,
